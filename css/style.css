@@ -1,0 +1,317 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+.navbar {
+	/*height: 100px;*/
+	font-family: 'Work Sans', sans-serif;
+	font-size: 16px;
+	width: 100%;
+	position: absolute;
+}
+
+.bg-nav {
+	background-color: #d4d4d4;
+}
+
+.fixed-top {
+	position: fixed;
+	/*height: 60px;*/
+	box-shadow: 0 3px 9px rgba(8,33,30,0.15);
+	transition: background-color 1s ease-in-out,
+              	box-shadow 1s ease-in-out;
+}
+
+.jumbotron {
+	background: linear-gradient(rgba(255,254,253,0.75), rgba(255,254,253,0.75)), url('../image/102.jpg');
+	background-size: cover;
+	min-height: 700px;
+	margin-bottom: 0;
+}
+
+.jumbotron > .container h1 {
+	font-family: 'Play', sans-serif;
+	font-size: 50px;
+	margin-top: 200px;
+	margin-bottom: 10px;
+}
+
+.jumbotron .container a {
+	margin-top: 70px;
+}
+
+section {
+	min-height: 700px;
+}
+
+section > .container {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+section > .container > h2 {
+	padding-bottom: 10px;
+}
+
+.content {
+	width: 80%;
+	margin-left: 10%
+}
+
+.content img {
+	width: 220px;
+	height: 220px;
+}
+
+.social-links a {
+	color: #212529;
+    padding: 0px 5px 0px 5px;
+}
+
+.social-links a:hover {
+	color: black;
+}
+
+/*============= About Style ==============*/
+#about .content {
+	opacity: 0;
+} 
+
+#about .content.show {
+	opacity: 1;
+}
+
+.skill {
+	margin-top: 50px;
+}
+
+.skill-bar {
+	position: relative;
+    display: block;
+    margin-bottom: 15px;
+    width: 100%;
+    background: #efefef;
+    height: 30px;
+    border-radius:3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    transition: 0.4s linear;
+    -webkit-transition: 0.4s linear;
+    -moz-transition: 0.4s linear;
+    -ms-transition: 0.4s linear;
+    -o-transition: 0.4s linear;
+    transition-property: width, background-color;
+    -webkit-transition-property: width, background-color;
+    -moz-transition-property: width, background-color;
+    -ms-transition-property: width, background-color;
+    -o-transition-property: width, background-color;
+}
+
+.skill-title {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 110px;
+    font-weight: bold;
+    font-size: 13px;
+    color: #ffffff;
+    background: #6adcfa;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-top-left-radius: 3px;
+    -moz-border-bottom-left-radius: 3px;
+}
+
+.skill-title span {
+	display: block;
+	background: rgba(0, 0, 0, 0.15);
+	padding: 0 20px;
+	height: 30px;
+	line-height: 30px;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-top-left-radius: 3px;
+	-moz-border-bottom-left-radius: 3px;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+.skill-bar-bar {
+	height: 30px;
+	width: 0px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+.skill-percent {
+	position: absolute;
+	right: 10px;
+	top: 0;
+	font-size: 11px;
+	height: 30px;
+	line-height: 30px;
+	color: #ffffff;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+
+/*============= Portfolio Style =============*/
+#portfolio .container {
+	opacity: 0;
+}
+
+#portfolio .container.show {
+	opacity: 1;
+}
+
+#portfolio a {
+	text-decoration: none;
+	color: #000000;
+}
+
+.box {
+	/*border: 1px solid red;*/
+	text-align: justify;
+	background-color: #ffffff;
+	border: 1px solid #d6d6d6;
+	border-radius: 3px;
+}
+
+.box-image {
+	height: auto 0;
+}
+
+.box-image img {
+	height: 250px;
+	width: 100%;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+.box-description {
+	position: relative;
+	height: 250px;
+	padding: 20px;
+}
+
+.box-description span {
+	font-size: 15px;
+	color: #6f6f71;
+}
+
+/*============ Contact Style ============*/
+/*#contact .container {
+	opacity: 0;
+}
+
+#contact .container.show {
+	opacity: 1;
+}*/
+
+#contact .content .row {
+	border: 1px solid #f36806;
+	border-radius: 5px;
+
+}
+
+#contact img {
+	width: 220px;
+	height: 220px;
+	border: 10px solid #f36806;
+	margin-bottom: 10px;
+}
+
+#contact .fa {
+	font-size: 20px;
+}
+
+.wrap-img {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.wrap-img h3 {
+	font-weight: bold;
+	color: #f36806;
+}
+
+.wrap-text {
+	background-color: #f36806; 
+	padding-top: 125px; 
+	padding-left: 50px; 
+	padding-right: 50px;
+}
+
+.card-icon {
+	position: absolute;
+	background-color: #ffffff;
+	width: 50px;
+	padding: 10px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+.card-text {
+	position: relative;
+	background-color: #ffffff;
+	height: 40px;
+	width: auto 0;
+	padding: 10px;
+	margin-top: 5px;
+	margin-left: 60px;
+	text-align: center;
+}
+
+
+/*============ Footer Style ===========*/
+footer {
+	height: 150px;
+	background-color: #3c3c3c;
+	padding: 40px;
+	color: #ffffff;
+}
+
+/*============= Responsive Style ============*/
+@media (max-width: 986px) {
+	.wrap-text {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	.card-text {
+		width: auto 0;
+	}
+}
+
+@media (max-width: 768px) {
+	.box {
+		margin-bottom: 10px;
+	}
+
+	.content {
+		width: 100%;
+		margin: auto 0;
+	}
+
+	#contact .col-lg-5 {
+		margin-bottom: 10px;
+	}
+
+	#contact .row {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+
+	footer {
+		padding: 10px;
+	}
+}
+
+
+
+
