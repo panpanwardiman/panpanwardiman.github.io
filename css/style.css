@@ -276,6 +276,16 @@ footer {
 	color: #ffffff;
 }
 
+
+/* ============= Single Page ============= */
+.demo {
+	background-color: #f7f7f7;
+}
+
+.border-image img {
+	width: 100%;
+}
+
 /*============= Responsive Style ============*/
 @media (max-width: 986px) {
 	.wrap-text {
