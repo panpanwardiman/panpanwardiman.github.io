@@ -747,7 +747,17 @@ try{
                             title: document.querySelector('.read__title'),
                             url: document.querySelector('link[rel=canonical]').href 
                         })
+                        console.log(`gagal son 1`)
+                    } else {
+                        navigator.share({
+                            text: 'NO FILE',
+                            title: 'title',
+                            url: 'baseurl'
+                        });
+                        console.log(`gagal son 1`)
                     }
+                } else {
+                    console.log(`gagal son 2`)
                 }
                 
             });
