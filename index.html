@@ -741,7 +741,7 @@ try{
                 console.log(`fileShare ${imgCanvas}`);
 
                 if (navigator.share) {
-                    if (!navigator.canShare && navigator.canShare({fileShare})) {
+                    if (navigator.canShare && navigator.canShare({fileShare})) {
                         navigator.share({
                             files: fileShare,
                             title: document.querySelector('.read__title'),
