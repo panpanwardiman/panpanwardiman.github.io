@@ -735,33 +735,108 @@ try{
                 // link.href = canvas.toDataURL();
                 // link.target = '_blank';
                 // link.click();
-                var imgCanvas = canvas.toDataURL('image/png')
-                var fileShare = new File([imgCanvas], 'html_image.png', {type: 'image/png'});
+                // var fileShare;
+                // canvas.toBlob(function(blob) {
+                //     var fileShare = new File([blob], 'html_image.png', {type: 'image/png'});
+                //     console.log(`fileShare ${blob}`);
+                // }, 'image/png', 0.5)
 
-                console.log(`fileShare ${imgCanvas}`);
+                const blob = canvas.toDataURL('image/png', 0.5)
+                shareNative(blob)
+                // shareImage()
+                // var fileShare = new File([blob], 'html_image.png', {type: blob.type});
+                // var blob = fetch(imgCanvas).blog();
+                // var fileShare = [
+                //     new File(
+                //         [blob],
+                //         'animation.png',
+                //         {
+                //             type: blob.type,
+                //             lastModified: new Date().getTime()
+                //         }
+                //     )
+                // ]
 
-                if (navigator.share) {
-                    if (navigator.canShare && navigator.canShare({fileShare})) {
-                        navigator.share({
-                            files: fileShare,
-                            title: document.querySelector('.read__title'),
-                            url: document.querySelector('link[rel=canonical]').href 
-                        })
-                        console.log(`gagal son 1`)
-                    } else {
-                        navigator.share({
-                            text: 'NO FILE',
-                            title: 'title',
-                            url: 'baseurl'
-                        });
-                        console.log(`gagal son 1`)
-                    }
-                } else {
-                    console.log(`gagal son 2`)
-                }
+                // console.log(`fileShare ${fileShare}`);
+
+                // if (navigator.share) {
+                //     if (navigator.canShare && navigator.canShare({fileShare})) {
+                //         navigator.share({
+                //             files: fileShare,
+                //             title: document.querySelector('.read__title'),
+                //             url: document.querySelector('link[rel=canonical]').href 
+                //         })
+                //         console.log(`gagal son 0`)
+                //     } else {
+                //         navigator.share({
+                //             text: 'NO FILE',
+                //             title: 'title',
+                //             url: 'baseurl'
+                //         });
+                //         console.log(`gagal son 1`)
+                //     }
+                // } else {
+                //     console.log(`gagal son 2`)
+                // }
                 
             });
-        }        
+        }  
+        
+        async function shareNative(blob) {
+            var fileShare = await (await fetch(blob)).blob();
+            console.log(blob)
+            const fileArray = [
+                new File(
+                    [blob],
+                    'test.jpg',
+                    {
+                        type: blob.type,
+                        lastModified: new Date().getTime()
+                    }
+                )
+            ]
+            console.log(fileArray)
+            if (navigator.share) {
+                if (navigator.canShare && navigator.canShare({ files: fileArray })) {
+                    navigator.share({
+                        files: fileArray,
+                        title: document.querySelector('.read__title'),
+                        url: document.querySelector('link[rel=canonical]').href 
+                    })
+                    console.log(`gagal son 0`)
+                } else {
+                    navigator.share({
+                        text: 'NO FILE',
+                        title: 'title',
+                        url: 'baseurl',
+                        // files: fileArray
+                    });
+                    console.log(`gagal son 1`)
+                }
+            } else {
+                console.log(`gagal son 2`)
+            }
+        }
+
+        async function shareImage() {
+            const response = await fetch('5edca0a6621cd.jpg');
+            const blob = await response.blob();
+            const filesArray = [
+                new File(
+                [blob],
+                'meme.jpg',
+                {
+                    type: "image/jpeg",
+                    lastModified: new Date().getTime()
+                }
+            )
+            ];
+            const shareData = {
+                files: filesArray,
+            };
+            console.log(shareData)
+            navigator.share(shareData);
+        }
     </script> 
     <!-- END CANVAS -->
 
