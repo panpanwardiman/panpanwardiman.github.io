@@ -739,8 +739,8 @@ try{
                 // console.log(canvas)
 
                 const blob = canvas.toDataURL('image/png', 0.1)
-                shareNative(blob)
-                // shareImage()
+                // shareNative(blob)
+                shareImage()
                 
             });
         }  
@@ -776,6 +776,7 @@ try{
             const shareData = {
                 files: fileArray,
             };
+            console.log(shareData)
             if (navigator.share) {
                 if (navigator.canShare && navigator.canShare(shareData)) {
                     navigator.share(shareData)
@@ -789,30 +790,30 @@ try{
             }
         }
 
-        // async function shareImage() {
-        //     const response = await fetch('5edca0a6621cd.jpg');
-        //     const blob = await response.blob();
-        //     console.log(blob)
-        //     console.log(typeof blob)
-        //     const filesArray = [
-        //         new File(
-        //         [blob],
-        //         'meme.jpg',
-        //         {
-        //             type: "image/jpeg",
-        //             lastModified: new Date().getTime()
-        //         }
-        //     )
-        //     ];
-        //     const shareData = {
-        //         files: filesArray,
-        //     };
-        //     console.log(typeof shareData)
-        //     console.log(shareData instanceof File)
-        //     console.log(shareData instanceof Blob)
-        //     console.log(shareData)
-        //     navigator.share(shareData);
-        // }
+        async function shareImage() {
+            const response = await fetch('5edca0a6621cd.jpg');
+            const blob = await response.blob();
+            console.log(blob)
+            console.log(typeof blob)
+            const filesArray = [
+                new File(
+                [blob],
+                'meme.jpg',
+                {
+                    type: "image/jpeg",
+                    lastModified: new Date().getTime()
+                }
+            )
+            ];
+            const shareData = {
+                files: filesArray,
+            };
+            console.log(typeof shareData)
+            console.log(shareData instanceof File)
+            console.log(shareData instanceof Blob)
+            console.log(shareData)
+            navigator.share(shareData);
+        }
     </script> 
     <!-- END CANVAS -->
 
