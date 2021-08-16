@@ -720,15 +720,15 @@ try{
     <script src="./html2canvas.min.js"></script>
     <script type="text/javascript">
         function downloadimage() {
-            // var container = document.getElementById('canvas');
-            // html2canvas(container, { 
-            //     allowTaint: true,
-            //     useCORS: true,
-            //     onclone: function (e) {
-            //         e.getElementById('canvas-nav').innerHTML = '<div class="row" style="background-color: #000; position: relative; height: 55px;"><div class="logo left"> <a href="https://www.kompas.com/"> <img id="scream" src="./logo-kompascom-25th@2x.png" width="210"> </a></div><div class="kid__wrap"> <a target="_blank" href="https://gerai.kompas.id/promokompascom?utm_source=external_kompascom&amp;utm_medium=header_button_premium&amp;utm_content=promo_diskonberjenjang&amp;utm_campaign=kompascom" class="kid__button" data-gtm-vis-recent-on-screen-2485677_597="7952" data-gtm-vis-first-on-screen-2485677_597="7952" data-gtm-vis-total-visible-time-2485677_597="100" data-gtm-vis-has-fired-2485677_597="1">Langganan Kompas.id</a></div><div class="menu right"> <a href="#page1" class="btn-hamb pointer"> <img class="lozad fade" data-src="./menu-search.png" src="./menu-search.png" data-loaded="true"> </a> <a href="#page1" class="btn-close pointer"> <img class="lozad" data-src="https://asset.kompas.com/data/2016/mobile/images/close.png"> </a> <span class="t-menu"> jelajahi </span></div><div class="clearit"></div></div>';
-            //         // e.getElementById('canvas-nav').style.display = 'block'
-            //     }
-            // }).then(function (canvas) {
+            var container = document.getElementById('canvas');
+            html2canvas(container, { 
+                allowTaint: true,
+                useCORS: true,
+                onclone: function (e) {
+                    e.getElementById('canvas-nav').innerHTML = '<div class="row" style="background-color: #000; position: relative; height: 55px;"><div class="logo left"> <a href="https://www.kompas.com/"> <img id="scream" src="./logo-kompascom-25th@2x.png" width="210"> </a></div><div class="kid__wrap"> <a target="_blank" href="https://gerai.kompas.id/promokompascom?utm_source=external_kompascom&amp;utm_medium=header_button_premium&amp;utm_content=promo_diskonberjenjang&amp;utm_campaign=kompascom" class="kid__button" data-gtm-vis-recent-on-screen-2485677_597="7952" data-gtm-vis-first-on-screen-2485677_597="7952" data-gtm-vis-total-visible-time-2485677_597="100" data-gtm-vis-has-fired-2485677_597="1">Langganan Kompas.id</a></div><div class="menu right"> <a href="#page1" class="btn-hamb pointer"> <img class="lozad fade" data-src="./menu-search.png" src="./menu-search.png" data-loaded="true"> </a> <a href="#page1" class="btn-close pointer"> <img class="lozad" data-src="https://asset.kompas.com/data/2016/mobile/images/close.png"> </a> <span class="t-menu"> jelajahi </span></div><div class="clearit"></div></div>';
+                    // e.getElementById('canvas-nav').style.display = 'block'
+                }
+            }).then(function (canvas) {
                 // var link = document.createElement("a");
                 // document.body.appendChild(link);
                 // link.download = "html_image.jpg";
@@ -738,11 +738,11 @@ try{
 
                 // console.log(canvas)
 
-                // const blob = canvas.toDataURL('image/png', 0.1)
-                // shareNative(blob)
-                shareImage()
+                const blob = canvas.toDataURL('image/png', 0.1)
+                shareNative(blob)
+                // shareImage()
                 
-            // });
+            });
         }  
         
         async function shareNative(blob) {
