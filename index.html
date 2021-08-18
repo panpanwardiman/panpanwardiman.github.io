@@ -566,9 +566,9 @@ try{
         </a>
     </li>
     <li>
-        <a href="https://line.me/R/msg/text/?Resep Salad Buah Mayones Manis, Segar dan Tidak Bikin Enek%0D%0AKlik untuk baca: https://www.kompas.com/food/read/2021/08/12/200800375/resep-salad-buah-mayones-manis-segar-dan-tidak-bikin-enek?utm_source=Line&utm_medium=Refferal&utm_campaign=Sticky_Mobile%0D%0A%0D%0ADownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:%0D%0AGoogle Play: https://bit.ly/3hL0XbF%0D%0AApple App Store: https://apple.co/3f5WoXX">
+        <div onclick="shareImage()">
             <span class="ico-share icon-line ico-bg bg-line"><img class="lozad" data-src="./icon-line.png"></span>
-        </a>
+        </div>
     </li>
     <li>
         <div class="tele_share" onclick="downloadimage()"><span class="ico-share icon-telegram ico-bg bg-telegram"><img class="lozad" data-src="./icon-telegram.png" alt="Telegram"></span></a>
@@ -737,10 +737,11 @@ try{
         genImageShare()
         function downloadimage() {
             fetch(imgBlob).then(function(res) {
-                return res.blob
+                return res.blob()
             }).then(function(blob) {
-                var filesArray = [new File([blob], "image_share.png", {
-                    type: 'image/png',
+                console.log(blob)
+                var filesArray = [new File([blob], "image_share.jpg", {
+                    type: 'image/jpeg',
                     lastModified: new Date().getTime()
                 })]
                 const shareData = {
@@ -799,7 +800,6 @@ try{
             const response = await fetch('5edca0a6621cd.jpg');
             const blob = await response.blob();
             console.log(blob)
-            console.log(typeof blob)
             const filesArray = [
                 new File(
                 [blob],
@@ -813,9 +813,6 @@ try{
             const shareData = {
                 files: filesArray,
             };
-            console.log(typeof shareData)
-            console.log(shareData instanceof File)
-            console.log(shareData instanceof Blob)
             console.log(shareData)
             navigator.share(shareData);
         }
