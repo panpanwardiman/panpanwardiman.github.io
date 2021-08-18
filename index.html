@@ -537,7 +537,7 @@ try{
         <!-- s : menu -->
         <div class="menu right">
             <a href="#page1" class="btn-hamb pointer">
-                <img class="lozad" data-src="./menu-search.png">
+                <img class="lozad" data-src="./menu-search.png" src="./menu-search.png">
             </a>
             <a href="#page1" class="btn-close pointer">
                 <img class="lozad" data-src="./close.png">
@@ -730,42 +730,68 @@ try{
                     // e.getElementById('canvas-nav').style.display = 'block'
                 }
             }).then(function(canvas){
-                imgBlob = canvas.toDataURL('image/png', 0.5)
+                imgBlob = canvas.toDataURL()
                 console.log(imgBlob)
             }) 
         }
         genImageShare()
         function downloadimage() {
-            const newBlob = new Blob([imgBlob], {
-                type: "image/png"
-            })
-            const fileArray = [
-                new File(
-                    [newBlob],
-                    'image.png',
-                    {
-                        type: "image/jpeg",
-                        lastModified: new Date().getTime()
+            fetch(imgBlob).then(function(res) {
+                return res.blob
+            }).then(function(blob) {
+                var filesArray = [new File([blob], "image_share.png", {
+                    type: 'image/png',
+                    lastModified: new Date().getTime()
+                })]
+                const shareData = {
+                    files: filesArray,
+                    title: document.querySelector('.read__title').textContent,
+                    url: document.querySelector('link[rel=canonical]').href
+                };
+                console.log(shareData)
+                if (navigator.share) {
+                    if (navigator.canShare && navigator.canShare(shareData)) {
+                        navigator.share(shareData)
+                        console.log(`message 0`)
+                    } else {
+                        navigator.share(shareData);
+                        console.log(`message 1`)
                     }
-                )
-            ]
-            const shareData = {
-                files: fileArray,
-                title: document.querySelector('.read__title').textContent,
-                url: document.querySelector('link[rel=canonical]').href
-            };
-            console.log(shareData)
-            if (navigator.share) {
-                if (navigator.canShare && navigator.canShare(shareData)) {
-                    navigator.share(shareData)
-                    console.log(`message 0`)
                 } else {
-                    navigator.share(shareData);
-                    console.log(`message 1`)
+                    console.log(`message 2`)
                 }
-            } else {
-                console.log(`message 2`)
-            }
+            })
+
+            // const newBlob = new Blob([imgBlob], {
+            //     type: "image/png"
+            // })
+            // const fileArray = [
+            //     new File(
+            //         [newBlob],
+            //         'image.png',
+            //         {
+            //             type: "image/jpeg",
+            //             lastModified: new Date().getTime()
+            //         }
+            //     )
+            // ]
+            // const shareData = {
+            //     files: fileArray,
+            //     title: document.querySelector('.read__title').textContent,
+            //     url: document.querySelector('link[rel=canonical]').href
+            // };
+            // console.log(shareData)
+            // if (navigator.share) {
+            //     if (navigator.canShare && navigator.canShare(shareData)) {
+            //         navigator.share(shareData)
+            //         console.log(`message 0`)
+            //     } else {
+            //         navigator.share(shareData);
+            //         console.log(`message 1`)
+            //     }
+            // } else {
+            //     console.log(`message 2`)
+            // }
         }  
         
 
