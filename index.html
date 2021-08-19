@@ -2461,7 +2461,10 @@
             }
 
             if (navigator.canShare && navigator.canShare(shareData)) {
-                navigator.share(shareData);
+                // navigator.share(shareData);
+                navigator.share({
+                    url: document.querySelector('link[rel=canonical]').href
+                })
                 console.log('response message 1');
             } else {                
                 this.target = '_blank';
