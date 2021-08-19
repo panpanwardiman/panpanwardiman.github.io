@@ -288,22 +288,20 @@
     <link href="https://asset.kompas.com/data/2020/parapuan/mobile/css/style-parapuan.min.css?v=4" rel="stylesheet" type="text/css">      
 </head>       
 <body class="kcm--read theme--parapuan bapps-show">          
-    <!--<link rel="stylesheet" href="https://adsimg.kompas.com/html5/assets_ads/pushdown/css/pushdown_top_cls.css">-->
+    <!--<link rel="stylesheet" href="https://adsimg.kompas.com/html5/assets_ads/pushdown/css/pushdown_top_cls.css">--> 
     <div class="pushdown-banner">
         <div class="ol_container">
             <div class="ol_big">
                 <div class="ol_big_inner">
-                    <div class="ol_promo" data-oltimer="4">
-                        <a target="_blank" href="https://bit.ly/3jQejHT">
-                            <img src="https://adsimg.kompas.com/html5/assets_ads/pushdown/images/BacaLebihJernih_320x480.jpg?v=2" alt="Aplikasi Kompas.com">
-                        </a>
+                    <div class="ol_promo show" data-oltimer="4">
+                        <iframe marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="https://adsimg.kompas.com/html5/assets_ads/pushdown/images/backup-random.html?v=2" alt="Aplikasi Kompas.com" style="width:320px;height:480px"></iframe>
                     </div>
                     <div class="ol_script">
-                        <div id='div-gpt-ad-Pushdown_CLS'>
-                            <script type='text/javascript'>
+                        <div id="div-gpt-ad-Pushdown_CLS" data-google-query-id="CKSky5qLvfICFcSMZgIdvnQBQA">
+                            <script type="text/javascript">
                                 googletag.cmd.push(function() { googletag.display('div-gpt-ad-Pushdown_CLS'); });
                             </script>
-                        </div>
+                        <div id="google_ads_iframe_/31800665/KOMPAS.COM_Mobile_Web/homey_6__container__" style="border: 0pt none;"></div></div>
                     </div>
                 </div>
             </div>
@@ -311,7 +309,7 @@
         </div>
         <div class="ol_swipe">Swipe up untuk membaca artikel</div>
         <script src="https://adsimg.kompas.com/html5/assets_ads/pushdown/js/ads-pushdown-delay.min.js"> </script>
-    </div>        
+    </div>      
     <!-- s : page -->   
     <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PT7PC4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="root">
@@ -2419,14 +2417,8 @@
                     rmHeader.style.cssText = 'background-color: #000; position: relative; height: 55px;';
                 }
             }).then(function(canvas){
-                const image = new Image()
-                image.onload = function() {
-                    image.onload = null;
-                    document.body.appendChild(image)
-                }
-                // image.crossOrigin = "anonymous";
-                image.src = canvas.toDataURL();
-                imgBlob = image.src
+                imgBlob = canvas.toDataURL()
+                // document.getElementById('canvas').style.display = 'none';
 
                 console.log(imgBlob)
             });
