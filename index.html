@@ -2442,6 +2442,8 @@
             // link.target = '_blank';
             // link.click();
 
+            console.log(e.getAttribute('href'))
+
             const resNative = await fetch(imgBlob);
             const resBlob = await resNative.blob();
             const filesArray = [
@@ -2463,7 +2465,8 @@
             if (navigator.canShare && navigator.canShare(shareData)) {
                 // navigator.share(shareData);
                 navigator.share({
-                    url: document.querySelector('link[rel=canonical]').href
+                    url: document.querySelector('link[rel=canonical]').href,
+                    text: 'Download aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:%0D%0AGoogle Play: https://bit.ly/3hMHWFT%0D%0AApple App Store: https://apple.co/39IBahB'
                 })
                 console.log('response message 1');
             } else {                
