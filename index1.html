@@ -2993,11 +2993,14 @@ z-index: 9999;
                     }
                 )
             ];
+
+            const shareUrl = document.querySelector('link[rel=canonical]').href+'?utm_source=Native_Share&utm_medium=Refferal&utm_campaign=Sticky_Mobile';
+            const shareText = `Klik untuk baca:\n ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\n\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`
             const shareData = {
                 files: filesArray,
                 // title: document.querySelector('.read__title').textContent,
                 // url: document.querySelector('link[rel=canonical]').href
-                text: "Klik untuk baca: https%3A%2F%2Fmegapolitan.kompas.com%2Fread%2F2021%2F08%2F19%2F17582611%2Fkondisi-covid-19-terkini-di-jakarta-jumlah-pasien-berkurang-namun-situasi%3Futm_source%3DWhatsapp%26utm_medium%3DRefferal%26utm_campaign%3DSticky_Mobile%0D%0A%0D%0ADownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:%0D%0AGoogle Play: https://bit.ly/3hMHWFT%0D%0AApple App Store: https://apple.co/39IBahB"
+                text: shareText
             }
 
             if (navigator.canShare && navigator.canShare(shareData)) {
