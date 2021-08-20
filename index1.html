@@ -2994,8 +2994,8 @@ z-index: 9999;
                 )
             ];
 
-            const shareUrl = document.querySelector('link[rel=canonical]').href+'?utm_source=Native_Share&utm_medium=Refferal&utm_campaign=Sticky_Mobile';
-            const shareText = `Klik untuk baca:\n ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\n\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`
+            const shareUrl = document.querySelector('link[rel=canonical]').href;
+            const shareText = `Klik untuk baca: ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`
             const shareData = {
                 files: filesArray,
                 // title: document.querySelector('.read__title').textContent,
@@ -3005,9 +3005,8 @@ z-index: 9999;
 
             if (navigator.canShare && navigator.canShare(shareData)) {
                 navigator.share(shareData);
-                console.log('response message 1');
             } else {                
-                console.log('response message 2');
+                console.log('Native share not supported');
             }
         }
     </script>
