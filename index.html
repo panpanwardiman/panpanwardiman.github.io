@@ -553,7 +553,7 @@ try{
             </a>
         </li>
         <li>
-            <div onclick="native_share(event)">
+            <div onclick="native_share(this, event)" data-href="https://www.kompas.com/parapuan/read/532843412/5-bahan-aktif-perawatan-rambut-yang-ampuh-untuk-mengatasi-ketombe">
                 <span class="ico-share icon-ws ico-bg bg-ws"><img class="lozad" data-src="./icon-share.png"></span>
             </div>
         </li>
@@ -627,7 +627,7 @@ try{
                     </a>
                 </li>
                 <li>
-                    <div onclick="native_share(event)">
+                    <div onclick="native_share(this, event)" data-href="https://www.kompas.com/parapuan/read/532843412/5-bahan-aktif-perawatan-rambut-yang-ampuh-untuk-mengatasi-ketombe">
                         <span class="ico-share icon-ws ico-bg bg-ws"><img class="lozad" data-src="./icon-share.png"></span>
                     </div>
                 </li>
@@ -2457,7 +2457,7 @@ z-index: 9999;
 
         gen_web_share()
 
-        async function native_share(event) {
+        async function native_share(t, event) {
             // var link = document.createElement("a");
             // document.body.appendChild(link);
             // link.download = "html_image.jpeg";
@@ -2479,7 +2479,7 @@ z-index: 9999;
                 )
             ];
 
-            const shareUrl = document.querySelector('link[rel=canonical]').href;
+            const shareUrl = t.getAttribute('data-href');
             const shareText = `Klik untuk baca: ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`
             const shareData = {
                 files: filesArray,
