@@ -3170,8 +3170,14 @@ async function native_share(t, event) {
             text: shareText
         }
 
-        if (navigator.canShare && navigator.canShare(shareData)) {
-            await navigator.share(shareData);
+        if (navigator.canShare(shareData)) {
+            try {
+              await navigator.share(shareData)
+            } catch (err) {
+              if (err.name !== 'AbortError') {
+                console.error(err.name, err.message)
+              }
+            }
         } else {                
             console.log('Native share not supported');
         }
