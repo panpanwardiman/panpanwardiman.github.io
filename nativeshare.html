@@ -3181,7 +3181,7 @@ function native_share(t, event) {
     .then(function(canvas) {
         return canvas.toDataURL();
     })
-    .then(function(image) {
+    .then(async function(image) {
         // var link = document.createElement("a");
         // document.body.appendChild(link);
         // link.download = "html_image.jpeg";
@@ -3189,7 +3189,7 @@ function native_share(t, event) {
         // link.target = '_blank';
         // link.click();
         var shareData;
-        fetch(image).then(function(res) {
+        await fetch(image).then(function(res) {
             const blob = res.blob();
             console.log(blob)
             const filesArray = [
@@ -3210,8 +3210,6 @@ function native_share(t, event) {
             }
     
             console.log(shareData)
-
-
         })
 
         if (navigator.canShare && navigator.canShare(shareData)) {
