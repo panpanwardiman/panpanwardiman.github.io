@@ -3190,8 +3190,7 @@ async function native_share(t, event) {
                 [blob],
                 'image_share.jpeg', 
                 {
-                    type: 'image/jpeg',
-                    lastModified: new Date().getTime()
+                    type: blob.type
                 }
             )
         ];
