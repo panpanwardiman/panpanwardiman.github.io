@@ -3138,19 +3138,27 @@ async function gen_web_share() {
             e.querySelector('#canvas .photoCarousel').style.display = 'none';
         }
     }
-    const canvas = await html2canvas(containerLayout, options);
-    imgBlob = await canvas.toDataURL();
+    html2canvas(containerLayout, options).then(function(canvas) {
+        return canvas.toDataURL();
+    }).then(function(imgBlob) {
+        fetch(imgBlob).then(function(response) {
+            const blob = response.blob();
+
+            return blob;
+        });
+    })
 }
 
-gen_web_share();
+// gen_web_share();
 
 async function native_share(t, event) {
     if (!('share' in navigator)) {
         return;
     }
 
-    const response = await fetch(imgBlob);
-    const blob = await response.blob();
+    // const response = await fetch(imgBlob);
+    const blob = await gen_web_share();
+    console.log(blob);
     const filesArray = [
         new File(
             [blob],
