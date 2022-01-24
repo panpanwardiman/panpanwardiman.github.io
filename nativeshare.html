@@ -3178,12 +3178,11 @@ async function native_share(t, event) {
         }
     }
 
-    const canvas = await html2canvas(containerLayout, options);
-    var imgCanvas = await canvas.toDataURL();
+    // const canvas = await html2canvas(containerLayout, options);
+    // var imgCanvas = await canvas.toDataURL();
 
     if ('canShare' in navigator) {
-        console.info(imgCanvas);
-        const response = await fetch(imgCanvas);
+        const response = await fetch('https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Rick_Astley_Dallas.jpg/267px-Rick_Astley_Dallas.jpg');
         const blob = await response.blob();
 
         const filesArray = [
