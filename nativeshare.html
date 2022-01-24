@@ -3181,7 +3181,7 @@ async function native_share(t, event) {
     const canvas = await html2canvas(containerLayout, options);
     var imgCanvas = await canvas.toDataURL();
 
-    setTimeout(testNative(t, imgCanvas), 300); 
+    setTimeout(testNative(t, imgCanvas), 3000); 
 }
 
 async function testNative(t, imgCanvas) {
