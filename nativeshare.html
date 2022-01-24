@@ -3133,11 +3133,12 @@ function gen_web_share() {
             const rmHeader = e.querySelector('#canvas .header-block')
             rmHeader.classList.remove('header-block');
             rmHeader.style.cssText = 'background-color: #000; position: relative; height: 50px;';
+
+            const photoCarousel = e.querySelector('#canvas .photoCarousel');
+            photoCarousel.style.display = 'none';
         }
     }).then(function(canvas){
         imgBlob = canvas.toDataURL()
-        // document.getElementById('canvas').style.display = 'none';
-        // console.log(imgBlob)
     });
 }
 
