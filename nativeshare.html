@@ -3188,6 +3188,7 @@ function native_share(t, event) {
         // link.href = image
         // link.target = '_blank';
         // link.click();
+        var shareData;
         fetch(image).then(function(res) {
             const blob = res.blob();
             console.log(blob)
@@ -3203,22 +3204,24 @@ function native_share(t, event) {
             ];
             const shareUrl = t.getAttribute('data-href');
             const shareText = `Klik untuk baca: ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`;
-            const shareData = {
+            shareData = {
                 files: filesArray,
                 text: shareText
             }
     
             console.log(shareData)
 
-            if (navigator.canShare && navigator.canShare(shareData)) {
-                navigator.share(shareData).then()
-                .catch((e) =>
-                    console.log('Error: ' + e)
-                )
-            } else {                
-                console.log('Native share not supported');
-            } 
+
         })
+
+        if (navigator.canShare && navigator.canShare(shareData)) {
+            navigator.share(shareData).then()
+            .catch((e) =>
+                console.log('Error: ' + e)
+            )
+        } else {                
+            console.log('Native share not supported');
+        } 
     })  
 }
 </script>
