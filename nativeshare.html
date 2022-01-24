@@ -3146,7 +3146,7 @@ function gen_web_share() {
     })
 }
 
-async function native_share(t, event) {
+function native_share(t, event) {
     if (!('share' in navigator)) {
         return;
     }
@@ -3177,35 +3177,48 @@ async function native_share(t, event) {
             e.querySelector('#canvas .photoCarousel').style.display = 'none';
         }
     }
-    const canvas = await html2canvas(containerLayout, options)
-    const urlBlob = await canvas.toDataURL();
-    const getImgBlob = await fetch(urlBlob);
-    const imgBlob = await getImgBlob.blob();
-    console.log(urlBlob);
-    console.log(imgBlob);
-    const filesArray = [
-        new File(
-            [imgBlob],
-            'image_share.jpeg', 
-            {
-                type: 'image/jpeg',
-                lastModified: new Date().getTime()
+    // const canvas = await html2canvas(containerLayout, options)
+    // const urlBlob = await canvas.toDataURL();
+    // const getImgBlob = await fetch(urlBlob);
+    // const imgBlob = await getImgBlob.blob();
+    html2canvas(containerLayout, options)
+    .then(function(canvas) {
+        return canvas.toDataURL();
+    })
+    .then(function(image) {
+        // var link = document.createElement("a");
+        // document.body.appendChild(link);
+        // link.download = "html_image.jpeg";
+        // link.href = image
+        // link.target = '_blank';
+        // link.click();
+        fetch(image).then(function(res) {
+            const blob = res.blob();
+            console.log(blob)
+            const filesArray = [
+                new File(
+                    [blob],
+                    'image_share.jpeg', 
+                    {
+                        type: 'image/jpeg',
+                        lastModified: new Date().getTime()
+                    }
+                )
+            ];
+            const shareUrl = t.getAttribute('data-href');
+            const shareText = `Klik untuk baca: ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`;
+            const shareData = {
+                files: filesArray,
+                text: shareText
             }
-        )
-    ];
 
-    const shareUrl = t.getAttribute('data-href');
-    const shareText = `Klik untuk baca: ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`;
-    const shareData = {
-        files: filesArray,
-        text: shareText
-    }
-
-    if (navigator.canShare && navigator.canShare(shareData)) {
-        navigator.share(shareData)
-    } else {                
-        console.log('Native share not supported');
-    }  
+            if (navigator.canShare && navigator.canShare(shareData)) {
+                navigator.share(shareData)
+            } else {                
+                console.log('Native share not supported');
+            } 
+        })
+    })     
     
     // const response = await fetch(imgBlob);
     // const blob = gen_web_share();
