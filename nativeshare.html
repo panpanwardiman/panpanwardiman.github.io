@@ -3109,11 +3109,10 @@ if(document.cookie.indexOf('ukid=') == -1){
 </script>
 <div id="canvas"></div>
 <script src="https://asset.kompas.com/data/2017/mobile/js/test/html2canvas.min.js"></script>                    
-<script>
-var imgBlob;    
-function gen_web_share() {
+<script>  
+async function gen_web_share() {
     const containerLayout = document.querySelector('#canvas');
-    html2canvas(containerLayout, {
+    const options = {
         allowTaint: true,
         useCORS: true,
         onclone: function (e) {
@@ -3132,20 +3131,20 @@ function gen_web_share() {
 
             const rmHeader = e.querySelector('#canvas .header-block')
             rmHeader.classList.remove('header-block');
-            rmHeader.style.cssText = 'background-color: #000; position: relative; height: 50px;';
+            rmHeader.style.cssText = 'background-color: #000; position: relative; height: 50px; padding: 10px';
 
-            const photoCarousel = e.querySelector('#canvas .photoCarousel');
-            photoCarousel.style.display = 'none';
+            e.querySelector('#canvas .header-info').style.display = "none";
+            e.querySelector('#canvas .photoCarousel').style.display = 'none';
         }
-    }).then(function(canvas){
-        imgBlob = canvas.toDataURL()
-    });
+    }
+    const canvas = await html2canvas(containerLayout, options);
+    const imgBlob = await canvas.toDataURL()
+    return imgBlob;
 }
-
-gen_web_share()
 
 async function native_share(t, event) {
     event.preventDefault()
+    const imgBlob = await gen_web_share();
     const resNative = await fetch(imgBlob);
     const resBlob = await resNative.blob();
     const filesArray = [
