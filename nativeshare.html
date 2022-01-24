@@ -3213,7 +3213,7 @@ function native_share(t, event) {
             if (navigator.canShare && navigator.canShare(shareData)) {
                 navigator.share(shareData).then()
                 .catch((e) =>
-                    resultPara.textContent = 'Error: ' + e
+                    console.log('Error: ' + e)
                 )
             } else {                
                 console.log('Native share not supported');
