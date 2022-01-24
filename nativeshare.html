@@ -3140,17 +3140,18 @@ async function gen_web_share() {
     const canvas = await html2canvas(containerLayout, options);
     const imgBlob = await canvas.toDataURL();
     const response = await fetch(imgBlob);
+    const blob = await response.blob();
 
-    return response;
+    return blob;
 }
 
 async function native_share(t, event) {
     event.preventDefault();    
-    const response = await gen_web_share();
-    const resBlob = await response.blob();
+    const blob = await gen_web_share();
+    console.log(blob);
     const filesArray = [
         new File(
-            [resBlob],
+            [blob],
             'image_share.jpeg', 
             {
                 type: 'image/jpeg',
