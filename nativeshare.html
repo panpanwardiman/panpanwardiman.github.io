@@ -3142,9 +3142,10 @@ async function gen_web_share() {
     imgBlob = await canvas.toDataURL()
 }
 
+gen_web_share();
+
 async function native_share(t, event) {
     event.preventDefault()
-    await gen_web_share();
     const resNative = await fetch(imgBlob);
     const resBlob = await resNative.blob();
     const filesArray = [
