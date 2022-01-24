@@ -3177,10 +3177,6 @@ function native_share(t, event) {
             e.querySelector('#canvas .photoCarousel').style.display = 'none';
         }
     }
-    // const canvas = await html2canvas(containerLayout, options)
-    // const urlBlob = await canvas.toDataURL();
-    // const getImgBlob = await fetch(urlBlob);
-    // const imgBlob = await getImgBlob.blob();
     html2canvas(containerLayout, options)
     .then(function(canvas) {
         return canvas.toDataURL();
@@ -3211,48 +3207,19 @@ function native_share(t, event) {
                 files: filesArray,
                 text: shareText
             }
+    
+            console.log(shareData)
 
             if (navigator.canShare && navigator.canShare(shareData)) {
-                navigator.share(shareData)
+                navigator.share(shareData).then()
+                .catch((e) =>
+                    resultPara.textContent = 'Error: ' + e
+                )
             } else {                
                 console.log('Native share not supported');
             } 
         })
-    })     
-    
-    // const response = await fetch(imgBlob);
-    // const blob = gen_web_share();
-    // console.log("TEST")
-    // console.log(blob);
-    // const filesArray = [
-    //     new File(
-    //         [blob],
-    //         'image_share.jpeg', 
-    //         {
-    //             type: 'image/jpeg',
-    //             lastModified: new Date().getTime()
-    //         }
-    //     )
-    // ];
-
-    // const shareUrl = t.getAttribute('data-href');
-    // const shareText = `Klik untuk baca: ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`;
-    // const shareData = {
-    //     files: filesArray,
-    //     text: shareText
-    // }
-
-    // if (navigator.canShare(shareData)) {
-    //     try {
-    //         navigator.share(shareData)
-    //     } catch (err) {
-    //         if (err.name !== 'AbortError') {
-    //         console.error(err.name, err.message)
-    //         }
-    //     }
-    // } else {                
-    //     console.log('Native share not supported');
-    // }
+    })  
 }
 </script>
 <script>    
