@@ -3110,8 +3110,8 @@ if(document.cookie.indexOf('ukid=') == -1){
 <div id="canvas"></div>
 <script src="https://asset.kompas.com/data/2017/mobile/js/test/html2canvas.min.js"></script>                    
 <script>  
-var imgBlob;
-function gen_web_share() {
+var imgCanvas;
+async function gen_web_share() {
     const containerLayout = document.querySelector('#canvas');
     const options = {
         allowTaint: true,
@@ -3138,58 +3138,18 @@ function gen_web_share() {
             e.querySelector('#canvas .photoCarousel').style.display = 'none';
         }
     }
-    html2canvas(containerLayout, options)
-    .then(function(canvas) {
-        imgBlob =  canvas.toDataURL();
-        console.log(imgBlob);
-        return imgBlob;
-    })
+    const canvas = await html2canvas(containerLayout, options);
+    imgCanvas = await canvas.toDataURL();
 }
-
+gen_web_share();
 async function native_share(t, event) {
     if (!('share' in navigator)) {
         return;
     }
 
-    const containerLayout = document.querySelector('#canvas');
-    const options = {
-        allowTaint: true,
-        useCORS: true,
-        onclone: function (e) {
-            const header = document.querySelector('.header-block').outerHTML;
-
-            const lozad = document.querySelectorAll('#social--article .ico-share img');
-            lozad.forEach(function(ico) {
-                ico.setAttribute('src', ico.getAttribute('data-src'));
-            })
-
-            const breadcrumb = document.querySelector('.breadcum-new').outerHTML;
-            const headline = document.querySelector('.headline.column').outerHTML;
-            const html = header + breadcrumb + headline;
-
-            e.getElementById('canvas').innerHTML = html;
-
-            const rmHeader = e.querySelector('#canvas .header-block')
-            rmHeader.classList.remove('header-block');
-            rmHeader.style.cssText = 'background-color: #000; position: relative; height: 50px; padding: 10px';
-
-            e.querySelector('#canvas .header-info').style.display = "none";
-            e.querySelector('#canvas .photoCarousel').style.display = 'none';
-        }
-    }
-
-    const canvas = await html2canvas(containerLayout, options);
-    var imgCanvas = await canvas.toDataURL();
-
-    setTimeout(testNative(t, imgCanvas), 3000); 
-}
-
-async function testNative(t, imgCanvas) {
     if ('canShare' in navigator) {
-        console.info(imgCanvas);
         const response = await fetch(imgCanvas);
         const blob = await response.blob();
-
         const filesArray = [
             new File(
                 [blob],
@@ -3207,9 +3167,7 @@ async function testNative(t, imgCanvas) {
             text: shareText
         }
 
-        console.log(shareData)
-
-        await navigator.share(shareData)
+        await navigator.share(shareData);
     } else {                
         console.log('Native share not supported');
     }
