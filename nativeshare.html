@@ -3179,9 +3179,10 @@ async function native_share(t, event) {
     }
 
     const canvas = await html2canvas(containerLayout, options);
-    const imgCanvas = await canvas.toDataURL();
+    var imgCanvas = await canvas.toDataURL();
 
     if ('canShare' in navigator) {
+        console.info(imgCanvas);
         const response = await fetch(imgCanvas);
         const blob = await response.blob();
 
@@ -3195,7 +3196,16 @@ async function native_share(t, event) {
             )
         ];
 
-        await navigator.share(filesArray)
+        const shareUrl = t.getAttribute('data-href');
+        const shareText = `Klik untuk baca: ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`;
+        const shareData = {
+            files: filesArray,
+            text: shareText
+        }
+
+        console.log(shareData)
+
+        await navigator.share(shareData)
     } else {                
         console.log('Native share not supported');
     }
