@@ -3138,41 +3138,74 @@ async function gen_web_share() {
         }
     }
     const canvas = await html2canvas(containerLayout, options);
-    const imgBlob = await canvas.toDataURL();
-    const response = await fetch(imgBlob);
-    const blob = await response.blob();
+    // const imgBlob = await canvas.toDataURL();
+    // const response = await fetch(imgBlob);
+    // const blob = await response.blob();
 
-    return blob;
+    return canvas;
 }
 
 async function native_share(t, event) {
-    event.preventDefault();    
-    const blob = await gen_web_share();
-    console.log(blob);
-    const filesArray = [
-        new File(
-            [blob],
-            'image_share.jpeg', 
-            {
-                type: 'image/jpeg',
-                lastModified: new Date().getTime()
-            }
-        )
-    ];
-
-    const shareUrl = t.getAttribute('data-href');
-    const shareText = `Klik untuk baca: ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`;
-    const shareData = {
-        files: filesArray,
-        text: shareText
+    if (!('share' in navigator)) {
+        return;
     }
 
-    if (navigator.canShare && navigator.canShare(shareData)) {
-        await navigator.share(shareData);
-    } else {                
-        console.log('Native share not supported');
-    }
+    const canvas = await gen_web_share();
+    canvas.toBlob(async function(blob) {
+        const filesArray = [
+            new File(
+                [blob],
+                'image_share.jpeg', 
+                {
+                    type: 'image/jpeg',
+                    lastModified: new Date().getTime()
+                }
+            )
+        ];
+
+        const shareUrl = t.getAttribute('data-href');
+        const shareText = `Klik untuk baca: ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`;
+        const shareData = {
+            files: filesArray,
+            text: shareText
+        }
+
+        if (navigator.canShare && navigator.canShare(shareData)) {
+            await navigator.share(shareData);
+        } else {                
+            console.log('Native share not supported');
+        }
+    })
 }
+
+// async function native_share(t, event) {
+//     event.preventDefault();    
+//     const blob = await gen_web_share();
+//     console.log(blob);
+//     const filesArray = [
+//         new File(
+//             [blob],
+//             'image_share.jpeg', 
+//             {
+//                 type: 'image/jpeg',
+//                 lastModified: new Date().getTime()
+//             }
+//         )
+//     ];
+
+//     const shareUrl = t.getAttribute('data-href');
+//     const shareText = `Klik untuk baca: ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`;
+//     const shareData = {
+//         files: filesArray,
+//         text: shareText
+//     }
+
+//     if (navigator.canShare && navigator.canShare(shareData)) {
+//         await navigator.share(shareData);
+//     } else {                
+//         console.log('Native share not supported');
+//     }
+// }
 </script>
 <script>    
 var el_badge = document.querySelector('.kgid-badge-menu')
