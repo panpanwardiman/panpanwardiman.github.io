@@ -3110,7 +3110,6 @@ if(document.cookie.indexOf('ukid=') == -1){
 <div id="canvas"></div>
 <script src="https://asset.kompas.com/data/2017/mobile/js/test/html2canvas.min.js"></script>                    
 <script>  
-var imgBlob;
 async function gen_web_share() {
     const containerLayout = document.querySelector('#canvas');
     const options = {
@@ -3139,15 +3138,16 @@ async function gen_web_share() {
         }
     }
     const canvas = await html2canvas(containerLayout, options);
-    imgBlob = await canvas.toDataURL()
+    const imgBlob = await canvas.toDataURL();
+    const response = await fetch(imgBlob);
+
+    return response;
 }
 
-gen_web_share();
-
 async function native_share(t, event) {
-    event.preventDefault()
-    const resNative = await fetch(imgBlob);
-    const resBlob = await resNative.blob();
+    event.preventDefault();    
+    const response = await gen_web_share();
+    const resBlob = await response.blob();
     const filesArray = [
         new File(
             [resBlob],
