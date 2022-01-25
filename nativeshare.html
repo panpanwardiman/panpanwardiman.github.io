@@ -3142,6 +3142,7 @@ if(document.cookie.indexOf('ukid=') == -1){
 //     return imgCanvas;
 // }
 async function native_share(t, event) {
+    event.preventDefault();
     if (!('share' in navigator)) {
         return;
     }
