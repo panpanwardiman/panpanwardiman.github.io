@@ -3108,7 +3108,7 @@ if(document.cookie.indexOf('ukid=') == -1){
 
 </script>
 <div id="canvas"></div>
-<script src="https://asset.kompas.com/data/2017/mobile/js/test/html2canvas.min.js"></script>                    
+<script src="html2canvas.min.js"></script>                    
 <script>  
 // var imgCanvas;
 // async function gen_web_share() {
@@ -3148,6 +3148,8 @@ async function native_share(t, event) {
     if ('canShare' in navigator) {
         const containerLayout = document.querySelector('#canvas');
         const options = {
+            allowTaint: true,
+            useCORS: true,
             onclone: function (e) {
                 const header = document.querySelector('.header-block').outerHTML;
                 const lozad = document.querySelectorAll('#social--article .ico-share img');
