@@ -3148,8 +3148,6 @@ async function native_share(t, event) {
     if ('canShare' in navigator) {
         const containerLayout = document.querySelector('#canvas');
         const options = {
-            allowTaint: true,
-            useCORS: true,
             onclone: function (e) {
                 const header = document.querySelector('.header-block').outerHTML;
                 const lozad = document.querySelectorAll('#social--article .ico-share img');
