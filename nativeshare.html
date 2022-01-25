@@ -3110,8 +3110,43 @@ if(document.cookie.indexOf('ukid=') == -1){
 <div id="canvas" style="display: block;"></div>
 <script src="html2canvas.min.js"></script>                    
 <script>  
-var imgCanvas;
-async function gen_web_share() {
+// var imgCanvas;
+// async function gen_web_share() {
+//     const containerLayout = document.querySelector('#canvas');
+//     const options = {
+//         allowTaint: true,
+//         useCORS: true,
+//         onclone: function (e) {
+//             const header = document.querySelector('.header-block').outerHTML;
+//             const lozad = document.querySelectorAll('#social--article .ico-share img');
+//             lozad.forEach(function(ico) {
+//                 ico.setAttribute('src', ico.getAttribute('data-src'));
+//             })
+
+//             const breadcrumb = document.querySelector('.breadcum-new').outerHTML;
+//             const headline = document.querySelector('.headline.column').outerHTML;
+//             const html = header + breadcrumb + headline;
+
+//             e.getElementById('canvas').innerHTML = html;
+
+//             const rmHeader = e.querySelector('#canvas .header-block')
+//             rmHeader.classList.remove('header-block');
+//             rmHeader.style.cssText = 'background-color: #000; position: relative; height: 50px; padding: 10px';
+
+//             e.querySelector('#canvas .header-info').style.display = "none";
+//             e.querySelector('#canvas .photoCarousel').style.display = 'none';
+//         }
+//     }
+//     const canvas = await html2canvas(containerLayout, options);
+//     imgCanvas = canvas.toDataURL();
+// }
+// gen_web_share();
+async function native_share(t, event) {
+    event.preventDefault();
+    if (!('share' in navigator)) {
+        return;
+    }
+    // if ('canShare' in navigator) {
     const containerLayout = document.querySelector('#canvas');
     const options = {
         allowTaint: true,
@@ -3137,29 +3172,42 @@ async function gen_web_share() {
             e.querySelector('#canvas .photoCarousel').style.display = 'none';
         }
     }
+
     const canvas = await html2canvas(containerLayout, options);
-    imgCanvas = canvas.toDataURL();
-}
-gen_web_share();
-async function native_share(t, event) {
-    event.preventDefault();
-    if (!('share' in navigator)) {
-        return;
-    }
-    if ('canShare' in navigator) {
-        const response = await fetch(imgCanvas);
-        const blob = await response.blob();
-        const filesArray = [new File([blob], 'image_share.jpeg', { type: blob.type })];
+    canvas.toBlob(async function(blob) {
+        const filesArray = [new File([blob], 'image_share.png', { type: blob.type })];
         const shareUrl = t.getAttribute('data-href');
         const shareText = `Klik untuk baca: ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`;
         const shareData = {
             files: filesArray,
             text: shareText
         };
-        await navigator.share(shareData);
-    } else {                
-        console.log('Native share not supported');
-    }
+        if (navigator.canShare(shareData)) {
+            try {
+                await navigator.share(shareData);
+            } catch (err) {
+                if (err.name !== 'AbortError') {
+                    console.error(err.name, err.message);
+                }
+            }
+        } else {
+            console.warn('Sharing not supported', shareData);
+        }
+    })
+
+        // const response = await fetch(imgCanvas);
+        // const blob = await response.blob();
+        // const filesArray = [new File([blob], 'image_share.jpeg', { type: blob.type })];
+        // const shareUrl = t.getAttribute('data-href');
+        // const shareText = `Klik untuk baca: ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`;
+        // const shareData = {
+        //     files: filesArray,
+        //     text: shareText
+        // };
+        // await navigator.share(shareData);
+    // } else {                
+    //     console.log('Native share not supported');
+    // }
 }
 </script>
 <script>    
