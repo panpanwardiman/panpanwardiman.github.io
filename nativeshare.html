@@ -3175,11 +3175,11 @@ async function native_share(t, event) {
         const canvas = await html2canvas(containerLayout, options);
         const imgCanvas = canvas.toDataURL('image/jpeg', 0.5);
         // download(imgCanvas)
-        const blob = await (await fetch(imgCanvas)).blob();
+        const blob = await (await fetch('https://asset.kompas.com/crops/Ra2_igvpHCP1uX6GdrJyYWP3we8=/128x85:1152x768/375x240/data/photo/2022/01/15/61e25defb0a6c.jpg')).blob();
         const filesArray = [new File([blob], 'image_share.jpeg', { type: blob.type })];
         const shareUrl = t.getAttribute('data-href');
         const shareText = `Klik untuk baca: ${shareUrl}\n\nDownload aplikasi Kompas.com untuk akses berita lebih mudah dan cepat:\nGoogle Play: https://bit.ly/3hMHWFT\nApple App Store: https://apple.co/39IBahB`;
-        await navigator.share({
+        navigator.share({
             files: filesArray,
             text: shareText
         });
