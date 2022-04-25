@@ -3064,6 +3064,20 @@ if (onSubmitNps !== null) {
         setCookie("badge_feedback_success", 1, 2160)
     })
 }
+	
+const socialItem = document.querySelectorAll('.social--footer .social__item, .social--header .social__item');
+socialItem.forEach(function(item) {
+    item.addEventListener('click', function() {
+        var url = item.querySelector('.social__link').href;
+        var action = url.match(/(\w+)\.\w{2,}(\/|\?|$)/)[1];
+        dataLayer.push({
+            'event': 'Follow Us',
+            'eventAction': action,
+            'eventLabel': url
+        });
+    });
+});
+
 </script>    
     <!-- (ads.peelad) -->
     <!-- (ads.outbrain) -->    
