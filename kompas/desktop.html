@@ -2099,7 +2099,7 @@ function fb_share(e,o){return u=o,t=e,window.open("http://www.facebook.com/share
 <h3 class="rVideo-lead">Video Pilihan</h3> 
 
 <div class="rVideo-player rVideo-player-unready">
-            <a href="javascript:void(0)" id="rVideoRedirect" class="rVideo-player-link" style="display: none">
+            <a href="javascript:void(0)" id="rVideoRedirect" class="rVideo-player-link">
             <div class="rVideo-player-paused">Lanjutkan Menonton Video</div>
         </a>
         <button class="rVideo-button" type="button"><span>Hide</span></button>
@@ -2198,41 +2198,17 @@ player.addListener("videochange", cbOnVideoChanged);
         let ii = 0;
         console.log("video_started"+ii)
         rInterval = setInterval(function() {
-            console.log('console '+ ii)
+            console.log(ii)
             usertime = ii
             if(ii==40) {
                 player.pause();
                 rPlayLink.classList.add('-enabled')
-                rPlayLink.style.display = 'block'
                 clearInterval(rInterval);
             }
             ii++
         }, 1000);
-
-        document.addEventListener('visibilitychange', function() {
-            if (document.visibilityState == 'hidden') {                
-                clearInterval(rInterval)
-            } else {
-                if (ii<=40) {
-                    rInterval = setInterval(function() {
-                        console.log('consolee '+ ii)
-                        usertime = ii
-                        if(ii>=40) {
-                            player.pause();
-                            rPlayLink.classList.add('-enabled')
-                            rPlayLink.style.display = 'block'
-                            clearInterval(rInterval);
-                        }
-                        ii++
-                    }, 1000);
-                } else {
-                    player.pause();
-                }
-            }
-        });
-
     });
-    if(!!rPlayLink) {        
+    if(!!rPlayLink) {
         rPlayLink.addEventListener('click', function(e){
             e.preventDefault()
             window.location = this.getAttribute('href') + '?strtime=' + usertime;
@@ -2460,80 +2436,32 @@ function timeFormatJixie(value) {
     <div class="article__wrap__grid--flex col-offset-fluid mt2">
                     <div class="col-bs12-3">
                 <div class="article__grid">
-                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-">
-                        <div class="article__subtitle">SOFTWARE</div>
-                    </div>
-                    <div class="article__asset">
-                        <a title="Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?" href="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-" position="1">
-                            <img id="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-" class="lozad" data-src="https://asset.kompas.com/crops/ZMgkdkKjerTuKjwGYl6IoBXZp2w=/0x0:960x640/170x113/data/photo/2021/07/19/60f502f730acf.jpg" alt="Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?">                        </a>
-                    </div>
-                    <div class="article__box">
-                        <div class="article__title">
-                            <a class="article__link" title="Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?" position="1" href="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-" style="font-size: 14px;">Microsoft Disebut Sedang Siapkan Windows 12,...</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    <div class="col-bs12-3">
-                <div class="article__grid">
-                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya">
-                        <div class="article__subtitle">GADGET</div>
-                    </div>
-                    <div class="article__asset">
-                        <a title="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya" href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" position="2">
-                            <img id="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" class="lozad" data-src="https://asset.kompas.com/crops/G1gWK8RfXaoR7PT1zJ3biI4Z8KU=/0x0:1561x1041/170x113/data/photo/2022/07/19/62d6545742e69.jpg" alt="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya">                        </a>
-                    </div>
-                    <div class="article__box">
-                        <div class="article__title">
-                            <a class="article__link" title="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya" position="2" href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" style="font-size: 14px;">Xiaomi 12 Lite Resmi Masuk Indonesia,...</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    <div class="col-bs12-3">
-                <div class="article__grid">
                     <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/13/08030007/membandingkan-jepretan-xiaomi-12s-ultra-galaxy-s22-ultra-dan-iphone-13-pro-max">
                         <div class="article__subtitle">GADGET</div>
                     </div>
                     <div class="article__asset">
-                        <a title="Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy S22 Ultra, dan iPhone 13 Pro Max, Bagaimana Hasilnya?" href="https://tekno.kompas.com/read/2022/07/13/08030007/membandingkan-jepretan-xiaomi-12s-ultra-galaxy-s22-ultra-dan-iphone-13-pro-max" position="3">
+                        <a title="Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy S22 Ultra, dan iPhone 13 Pro Max, Bagaimana Hasilnya?" href="https://tekno.kompas.com/read/2022/07/13/08030007/membandingkan-jepretan-xiaomi-12s-ultra-galaxy-s22-ultra-dan-iphone-13-pro-max" position="1">
                             <img id="https://tekno.kompas.com/read/2022/07/13/08030007/membandingkan-jepretan-xiaomi-12s-ultra-galaxy-s22-ultra-dan-iphone-13-pro-max" class="lozad" data-src="https://asset.kompas.com/crops/4_Sv8fv_kflTzQP2DlGnawM5dfY=/93x50:912x596/170x113/data/photo/2022/07/05/62c40e0270953.jpg" alt="Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy S22 Ultra, dan iPhone 13 Pro Max, Bagaimana Hasilnya?">                        </a>
                     </div>
                     <div class="article__box">
                         <div class="article__title">
-                            <a class="article__link" title="Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy S22 Ultra, dan iPhone 13 Pro Max, Bagaimana Hasilnya?" position="3" href="https://tekno.kompas.com/read/2022/07/13/08030007/membandingkan-jepretan-xiaomi-12s-ultra-galaxy-s22-ultra-dan-iphone-13-pro-max" style="font-size: 14px;">Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy...</a>
+                            <a class="article__link" title="Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy S22 Ultra, dan iPhone 13 Pro Max, Bagaimana Hasilnya?" position="1" href="https://tekno.kompas.com/read/2022/07/13/08030007/membandingkan-jepretan-xiaomi-12s-ultra-galaxy-s22-ultra-dan-iphone-13-pro-max" style="font-size: 14px;">Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy...</a>
                         </div>
                     </div>
                 </div>
             </div>
                     <div class="col-bs12-3">
                 <div class="article__grid">
-                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/19/16250047/gelang-pintar-xiaomi-smart-band-7-meluncur-di-indonesia-ini-harganya">
-                        <div class="article__subtitle">GADGET</div>
+                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-">
+                        <div class="article__subtitle">SOFTWARE</div>
                     </div>
                     <div class="article__asset">
-                        <a title="Gelang Pintar Xiaomi Smart Band 7 Meluncur di Indonesia, Ini Harganya" href="https://tekno.kompas.com/read/2022/07/19/16250047/gelang-pintar-xiaomi-smart-band-7-meluncur-di-indonesia-ini-harganya" position="4">
-                            <img id="https://tekno.kompas.com/read/2022/07/19/16250047/gelang-pintar-xiaomi-smart-band-7-meluncur-di-indonesia-ini-harganya" class="lozad" data-src="https://asset.kompas.com/crops/3XIVZvdPiD6iU2N4uzphWR5hO3g=/18x0:1548x1020/170x113/data/photo/2022/07/19/62d66f8d4ff52.jpg" alt="Gelang Pintar Xiaomi Smart Band 7 Meluncur di Indonesia, Ini Harganya">                        </a>
+                        <a title="Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?" href="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-" position="2">
+                            <img id="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-" class="lozad" data-src="https://asset.kompas.com/crops/ZMgkdkKjerTuKjwGYl6IoBXZp2w=/0x0:960x640/170x113/data/photo/2021/07/19/60f502f730acf.jpg" alt="Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?">                        </a>
                     </div>
                     <div class="article__box">
                         <div class="article__title">
-                            <a class="article__link" title="Gelang Pintar Xiaomi Smart Band 7 Meluncur di Indonesia, Ini Harganya" position="4" href="https://tekno.kompas.com/read/2022/07/19/16250047/gelang-pintar-xiaomi-smart-band-7-meluncur-di-indonesia-ini-harganya" style="font-size: 14px;">Gelang Pintar Xiaomi Smart Band 7...</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    <div class="col-bs12-3">
-                <div class="article__grid">
-                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-">
-                        <div class="article__subtitle">GADGET</div>
-                    </div>
-                    <div class="article__asset">
-                        <a title="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?" href="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" position="5">
-                            <img id="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" class="lozad" data-src="https://asset.kompas.com/crops/L6Md9wHAzuCyh0kf1ZhVIxwNYYQ=/79x96:1355x946/170x113/data/photo/2022/04/08/624fc0abf1b26.png" alt="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?">                        </a>
-                    </div>
-                    <div class="article__box">
-                        <div class="article__title">
-                            <a class="article__link" title="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?" position="5" href="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" style="font-size: 14px;">Xiaomi 12T Meluncur di Indonesia Sebentar...</a>
+                            <a class="article__link" title="Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?" position="2" href="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-" style="font-size: 14px;">Microsoft Disebut Sedang Siapkan Windows 12,...</a>
                         </div>
                     </div>
                 </div>
@@ -2544,12 +2472,28 @@ function timeFormatJixie(value) {
                         <div class="article__subtitle">GADGET</div>
                     </div>
                     <div class="article__asset">
-                        <a title="Xiaomi 12 Lite 5G Rilis di Indonesia 19 Juli, Ini Bocoran Harga dan Spesifikasinya" href="https://tekno.kompas.com/read/2022/07/15/13000067/xiaomi-12-lite-5g-rilis-di-indonesia-19-juli-ini-bocoran-harga-dan" position="6">
+                        <a title="Xiaomi 12 Lite 5G Rilis di Indonesia 19 Juli, Ini Bocoran Harga dan Spesifikasinya" href="https://tekno.kompas.com/read/2022/07/15/13000067/xiaomi-12-lite-5g-rilis-di-indonesia-19-juli-ini-bocoran-harga-dan" position="3">
                             <img id="https://tekno.kompas.com/read/2022/07/15/13000067/xiaomi-12-lite-5g-rilis-di-indonesia-19-juli-ini-bocoran-harga-dan" class="lozad" data-src="https://asset.kompas.com/crops/vKInXXoENi08xlsEak8cJzuiAUQ=/595x277:1282x735/170x113/data/photo/2022/07/15/62d0e2d1313d8.jpg" alt="Xiaomi 12 Lite 5G Rilis di Indonesia 19 Juli, Ini Bocoran Harga dan Spesifikasinya">                        </a>
                     </div>
                     <div class="article__box">
                         <div class="article__title">
-                            <a class="article__link" title="Xiaomi 12 Lite 5G Rilis di Indonesia 19 Juli, Ini Bocoran Harga dan Spesifikasinya" position="6" href="https://tekno.kompas.com/read/2022/07/15/13000067/xiaomi-12-lite-5g-rilis-di-indonesia-19-juli-ini-bocoran-harga-dan" style="font-size: 14px;">Xiaomi 12 Lite 5G Rilis di...</a>
+                            <a class="article__link" title="Xiaomi 12 Lite 5G Rilis di Indonesia 19 Juli, Ini Bocoran Harga dan Spesifikasinya" position="3" href="https://tekno.kompas.com/read/2022/07/15/13000067/xiaomi-12-lite-5g-rilis-di-indonesia-19-juli-ini-bocoran-harga-dan" style="font-size: 14px;">Xiaomi 12 Lite 5G Rilis di...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-bs12-3">
+                <div class="article__grid">
+                    <div class="article__boxsubtitle" id="https://infokomputer.grid.id/read/123016420/daftar-9-provider-internet-dan-harga-berlangganan-pasang-wifi-di-rumah?utm_source=kompas.com&utm_medium=jaim-box">
+                        <div class="article__subtitle">BERITA</div>
+                    </div>
+                    <div class="article__asset">
+                        <a title="Daftar 9 Provider Internet dan Harga Berlangganan Pasang WiFi di Rumah" href="https://infokomputer.grid.id/read/123016420/daftar-9-provider-internet-dan-harga-berlangganan-pasang-wifi-di-rumah?utm_source=kompas.com&utm_medium=jaim-box" position="4">
+                            <img id="https://infokomputer.grid.id/read/123016420/daftar-9-provider-internet-dan-harga-berlangganan-pasang-wifi-di-rumah?utm_source=kompas.com&utm_medium=jaim-box" class="lozad" data-src="https://asset-a.grid.id/crop/0x0:0x0/750x500/photo/2021/06/03/91307-work-from-balijpg-20210603074207.jpg" alt="Daftar 9 Provider Internet dan Harga Berlangganan Pasang WiFi di Rumah">                        </a>
+                    </div>
+                    <div class="article__box">
+                        <div class="article__title">
+                            <a class="article__link" title="Daftar 9 Provider Internet dan Harga Berlangganan Pasang WiFi di Rumah" position="4" href="https://infokomputer.grid.id/read/123016420/daftar-9-provider-internet-dan-harga-berlangganan-pasang-wifi-di-rumah?utm_source=kompas.com&utm_medium=jaim-box" style="font-size: 14px;">Daftar 9 Provider Internet dan Harga...</a>
                         </div>
                     </div>
                 </div>
@@ -2560,28 +2504,60 @@ function timeFormatJixie(value) {
                         <div class="article__subtitle">GADGET</div>
                     </div>
                     <div class="article__asset">
-                        <a title="Inilah Bocoran Daftar HP Xiaomi yang Bisa Update MIUI 13, Ada Punyamu?" href="https://nextren.grid.id/read/013014806/inilah-bocoran-daftar-hp-xiaomi-yang-bisa-update-miui-13-ada-punyamu?utm_source=kompas.com&utm_medium=jaim-box" position="7">
+                        <a title="Inilah Bocoran Daftar HP Xiaomi yang Bisa Update MIUI 13, Ada Punyamu?" href="https://nextren.grid.id/read/013014806/inilah-bocoran-daftar-hp-xiaomi-yang-bisa-update-miui-13-ada-punyamu?utm_source=kompas.com&utm_medium=jaim-box" position="5">
                             <img id="https://nextren.grid.id/read/013014806/inilah-bocoran-daftar-hp-xiaomi-yang-bisa-update-miui-13-ada-punyamu?utm_source=kompas.com&utm_medium=jaim-box" class="lozad" data-src="https://asset-a.grid.id/crop/0x0:0x0/750x500/photo/2021/11/05/src-340x191miui-13-ekran-goruntu-20211105083118.jpg" alt="Inilah Bocoran Daftar HP Xiaomi yang Bisa Update MIUI 13, Ada Punyamu?">                        </a>
                     </div>
                     <div class="article__box">
                         <div class="article__title">
-                            <a class="article__link" title="Inilah Bocoran Daftar HP Xiaomi yang Bisa Update MIUI 13, Ada Punyamu?" position="7" href="https://nextren.grid.id/read/013014806/inilah-bocoran-daftar-hp-xiaomi-yang-bisa-update-miui-13-ada-punyamu?utm_source=kompas.com&utm_medium=jaim-box" style="font-size: 14px;">Inilah Bocoran Daftar HP Xiaomi yang...</a>
+                            <a class="article__link" title="Inilah Bocoran Daftar HP Xiaomi yang Bisa Update MIUI 13, Ada Punyamu?" position="5" href="https://nextren.grid.id/read/013014806/inilah-bocoran-daftar-hp-xiaomi-yang-bisa-update-miui-13-ada-punyamu?utm_source=kompas.com&utm_medium=jaim-box" style="font-size: 14px;">Inilah Bocoran Daftar HP Xiaomi yang...</a>
                         </div>
                     </div>
                 </div>
             </div>
                     <div class="col-bs12-3">
                 <div class="article__grid">
-                    <div class="article__boxsubtitle" id="https://www.kompas.com/tren/read/2022/07/20/070000465/update-corona-20-juli--indonesia-catat-rekor-kasus-selama-2-bulan-bocah-4">
-                        <div class="article__subtitle">TREN</div>
+                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-">
+                        <div class="article__subtitle">GADGET</div>
                     </div>
                     <div class="article__asset">
-                        <a title="Update Corona 20 Juli: Indonesia Catat Rekor Kasus Selama 2 Bulan | Bocah 4 Tahun di Singapura Meninggal Akibat Covid-19" href="https://www.kompas.com/tren/read/2022/07/20/070000465/update-corona-20-juli--indonesia-catat-rekor-kasus-selama-2-bulan-bocah-4" position="8">
-                            <img id="https://www.kompas.com/tren/read/2022/07/20/070000465/update-corona-20-juli--indonesia-catat-rekor-kasus-selama-2-bulan-bocah-4" class="lozad" data-src="https://asset.kompas.com/crops/9K90bNLlBVSMcsGYBRdFY1Iuvzw=/0x0:1000x667/170x113/data/photo/2021/09/12/613e28a6cea09.jpg" alt="Update Corona 20 Juli: Indonesia Catat Rekor Kasus Selama 2 Bulan | Bocah 4 Tahun di Singapura Meninggal Akibat Covid-19">                        </a>
+                        <a title="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?" href="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" position="6">
+                            <img id="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" class="lozad" data-src="https://asset.kompas.com/crops/L6Md9wHAzuCyh0kf1ZhVIxwNYYQ=/79x96:1355x946/170x113/data/photo/2022/04/08/624fc0abf1b26.png" alt="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?">                        </a>
                     </div>
                     <div class="article__box">
                         <div class="article__title">
-                            <a class="article__link" title="Update Corona 20 Juli: Indonesia Catat Rekor Kasus Selama 2 Bulan | Bocah 4 Tahun di Singapura Meninggal Akibat Covid-19" position="8" href="https://www.kompas.com/tren/read/2022/07/20/070000465/update-corona-20-juli--indonesia-catat-rekor-kasus-selama-2-bulan-bocah-4" style="font-size: 14px;">Update Corona 20 Juli: Indonesia Catat...</a>
+                            <a class="article__link" title="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?" position="6" href="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" style="font-size: 14px;">Xiaomi 12T Meluncur di Indonesia Sebentar...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-bs12-3">
+                <div class="article__grid">
+                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/19/16250047/gelang-pintar-xiaomi-smart-band-7-meluncur-di-indonesia-ini-harganya">
+                        <div class="article__subtitle">GADGET</div>
+                    </div>
+                    <div class="article__asset">
+                        <a title="Gelang Pintar Xiaomi Smart Band 7 Meluncur di Indonesia, Ini Harganya" href="https://tekno.kompas.com/read/2022/07/19/16250047/gelang-pintar-xiaomi-smart-band-7-meluncur-di-indonesia-ini-harganya" position="7">
+                            <img id="https://tekno.kompas.com/read/2022/07/19/16250047/gelang-pintar-xiaomi-smart-band-7-meluncur-di-indonesia-ini-harganya" class="lozad" data-src="https://asset.kompas.com/crops/3XIVZvdPiD6iU2N4uzphWR5hO3g=/18x0:1548x1020/170x113/data/photo/2022/07/19/62d66f8d4ff52.jpg" alt="Gelang Pintar Xiaomi Smart Band 7 Meluncur di Indonesia, Ini Harganya">                        </a>
+                    </div>
+                    <div class="article__box">
+                        <div class="article__title">
+                            <a class="article__link" title="Gelang Pintar Xiaomi Smart Band 7 Meluncur di Indonesia, Ini Harganya" position="7" href="https://tekno.kompas.com/read/2022/07/19/16250047/gelang-pintar-xiaomi-smart-band-7-meluncur-di-indonesia-ini-harganya" style="font-size: 14px;">Gelang Pintar Xiaomi Smart Band 7...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-bs12-3">
+                <div class="article__grid">
+                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya">
+                        <div class="article__subtitle">GADGET</div>
+                    </div>
+                    <div class="article__asset">
+                        <a title="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya" href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" position="8">
+                            <img id="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" class="lozad" data-src="https://asset.kompas.com/crops/G1gWK8RfXaoR7PT1zJ3biI4Z8KU=/0x0:1561x1041/170x113/data/photo/2022/07/19/62d6545742e69.jpg" alt="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya">                        </a>
+                    </div>
+                    <div class="article__box">
+                        <div class="article__title">
+                            <a class="article__link" title="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya" position="8" href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" style="font-size: 14px;">Xiaomi 12 Lite Resmi Masuk Indonesia,...</a>
                         </div>
                     </div>
                 </div>
@@ -3557,27 +3533,27 @@ unfixed: function() {
            <div class="article__list clearfix">
     <div class="article__list__asset clearfix">
         <div class="article__asset">
-            <a href="https://www.sonora.id/read/423384384/5-zodiak-yang-suka-memanfaatkan-kebaikan-orang-lain-datang-kalau-ada-maunya-doang?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">
-                <img class="lozad" data-src="https://imgx.sonora.id/crop/0x0:0x0/945x630/photo/2022/07/20/featured-71jpg-20220720075728.jpg" alt="5 Zodiak yang Suka Memanfaatkan Kebaikan Orang Lain! Datang Kalau Ada Maunya Doang">
+            <a href="https://www.sonora.id/read/423385103/catat-6-tips-jitu-lolos-wawancara-kerja-pertama-kali-99-keterima?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">
+                <img class="lozad" data-src="https://imgx.sonora.id/crop/0x0:0x0/945x630/photo/2022/07/20/featured-73jpg-20220720013431.jpg" alt="Catat! 6 Tips Jitu Lolos Wawancara Kerja Pertama Kali, 99% Keterima!">
             </a>
         </div>
     </div>
     <div class="article__list__url">
         <h3 class="article__title article__title--medium">
-            <a class="article__link" href="https://www.sonora.id/read/423384384/5-zodiak-yang-suka-memanfaatkan-kebaikan-orang-lain-datang-kalau-ada-maunya-doang?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">5 Zodiak yang Suka Memanfaatkan Kebaikan Orang Lain! Datang Kalau Ada Maunya Doang</a>
+            <a class="article__link" href="https://www.sonora.id/read/423385103/catat-6-tips-jitu-lolos-wawancara-kerja-pertama-kali-99-keterima?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">Catat! 6 Tips Jitu Lolos Wawancara Kerja Pertama Kali, 99% Keterima!</a>
         </h3>
     </div>
 </div><div class="article__list clearfix">
     <div class="article__list__asset clearfix">
         <div class="article__asset">
-            <a href="https://www.sonora.id/read/423384845/5-zodiak-yang-gak-bisa-sembunyikan-rasa-bencinya-kalau-gak-suka-pasti-keliatan-banget?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">
-                <img class="lozad" data-src="https://imgx.sonora.id/crop/0x0:0x0/945x630/photo/2022/07/20/benci-steve-harvey-via-unsplash-20220720112731.jpg" alt="5 Zodiak yang Gak Bisa Sembunyikan Rasa Bencinya, Kalau Gak Suka Pasti Keliatan Banget!">
+            <a href="https://www.sonora.id/read/423384630/wah-baru-tahu-ternyata-bentuk-bibir-bisa-ungkap-karakter-orang-kamu-tipe-yang-seperti-apa?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">
+                <img class="lozad" data-src="https://imgx.sonora.id/crop/0x0:0x0/945x630/photo/2022/07/20/pexels-mentatdgt-1399288-1jpg-20220720100053.jpg" alt="WAH Baru Tahu! Ternyata Bentuk Bibir Bisa Ungkap Karakter Orang, Kamu Tipe yang Seperti Apa?">
             </a>
         </div>
     </div>
     <div class="article__list__url">
         <h3 class="article__title article__title--medium">
-            <a class="article__link" href="https://www.sonora.id/read/423384845/5-zodiak-yang-gak-bisa-sembunyikan-rasa-bencinya-kalau-gak-suka-pasti-keliatan-banget?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">5 Zodiak yang Gak Bisa Sembunyikan Rasa Bencinya, Kalau Gak Suka Pasti Keliatan Banget!</a>
+            <a class="article__link" href="https://www.sonora.id/read/423384630/wah-baru-tahu-ternyata-bentuk-bibir-bisa-ungkap-karakter-orang-kamu-tipe-yang-seperti-apa?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">WAH Baru Tahu! Ternyata Bentuk Bibir Bisa Ungkap Karakter Orang, Kamu Tipe yang Seperti Apa?</a>
         </h3>
     </div>
 </div>        </div>
@@ -4369,7 +4345,7 @@ function showKgModal() {
 
 function completeProfile() {
     const token = ("; "+document.cookie).split("; kmp_uid=").pop().split(";").shift();
-    const jkom_hash = "$2y$10$x8TgZai8HJo008OdMXwiWe///EvgXeLFQnqKwaJbgBWmJfPaoUzs2";
+    const jkom_hash = "$2y$10$iQUAFHzi5LXjZkGNKpVwFOg5z9m2VQPxRSW545uI5Dt//USYex8tm";
     window.location.href = "https://account.kompas.com/verify_data?source=kompascom&medium=popupkomentar&vid="+token+"&rurl="+btoa(window.location.href)+"&jkom="+jkom_hash;
 }
 </script>
