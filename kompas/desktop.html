@@ -2186,7 +2186,7 @@ player.addListener("videochange", cbOnVideoChanged);
     });
     if(!!rPlayLink) {        
         rPlayLink.addEventListener('click', function(e){
-            e.preventDefault()
+//             e.preventDefault()
             if (this.classList.contains('-enabled')) {
                 window.location = this.getAttribute('data-href') + '?strtime=' + usertime;
             }
