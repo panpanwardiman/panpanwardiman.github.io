@@ -1416,6 +1416,10 @@ try{
                         var urlVideo = 'javascript:void(0)'
                                                     var urlTitle = item.title.replace(/[^a-zA-Z ]+/g, '').replace(/\s+/g, '-').toLowerCase();
                             urlVideo = `https://video.kompas.com/watch/${item.video_id}/${urlTitle}`
+
+                            if (index == 0) {
+                                document.querySelector('.rVideo-player-link').setAttribute("href", urlVideo);
+                            }
                         
                         rvList += `<div id="rVideo-item-${item.video_id}" class="rVideo-item ${cls}" onclick="triggerOneVideo(${item.video_id})" data-video-index="${index}">
                         <a href="${urlVideo}" class="rVideo-link">
@@ -1868,7 +1872,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/19/12020067/mengapa-google-dan-platform-digital-lain-tak-segera-daftar-pse">Mengapa Google dan Platform Digital Lain Tak Segera Daftar PSE?</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 2 menit lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 10 menit lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/19/12020067/mengapa-google-dan-platform-digital-lain-tak-segera-daftar-pse">
@@ -1883,7 +1887,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-">Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 2 menit lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 10 menit lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-">
@@ -1898,7 +1902,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/10450057/samsung-pastikan-galaxy-unpacked-digelar-10-agustus-rilis-z-fold-4-dan-z-flip-4">Samsung Pastikan Galaxy Unpacked Digelar 10 Agustus, Rilis Z Fold 4 dan Z Flip 4?</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Gadget</a></strong> - 17 menit lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Gadget</a></strong> - 25 menit lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/10450057/samsung-pastikan-galaxy-unpacked-digelar-10-agustus-rilis-z-fold-4-dan-z-flip-4">
@@ -1913,7 +1917,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/19/10150087/7-pasal-karet-di-aturan-pse-kominfo-yang-ancam-blokir-google-dkk">7 "Pasal Karet" di Aturan PSE Kominfo yang Ancam Blokir Google dkk</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 18 menit lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 27 menit lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/19/10150087/7-pasal-karet-di-aturan-pse-kominfo-yang-ancam-blokir-google-dkk">
@@ -1928,7 +1932,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/10150067/daftar-platform-digital-yang-sudah-terdaftar-di-halaman-pse-kominfo">Daftar Platform Digital yang Sudah Terdaftar di Halaman PSE Kominfo</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 47 menit lalu            </div>
+                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 55 menit lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/10150067/daftar-platform-digital-yang-sudah-terdaftar-di-halaman-pse-kominfo">
@@ -2417,7 +2421,7 @@ function showKgModal() {
 
 function completeProfile() {
     const token = ("; "+document.cookie).split("; kmp_uid=").pop().split(";").shift();
-    const jkom_hash = "$2y$10$CPmydiOnh8NqhMeF/pxt1OW.WOURsn3pEnG6C3USgyiEHEgq/2jL6";
+    const jkom_hash = "$2y$10$uIqeVaBcau7JELindPuypeEGHX4KNQtOmG24q73MYZbTHIhxlYQWe";
     window.location.href = "https://account.kompas.com/verify_data?source=kompascom&medium=popupkomentar&vid="+token+"&rurl="+btoa(window.location.href)+"&jkom="+jkom_hash;
 }
 </script>
