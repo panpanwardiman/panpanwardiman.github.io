@@ -2186,14 +2186,14 @@ player.addListener("videochange", cbOnVideoChanged);
     let usertime = 0;
     let rInterval
     let rPlayLink = document.getElementById('rVideoRedirect')
+    console.info(player)
     player.addListener("video_started", function(){
         let ii = 0;
         console.log("video_started"+ii)
         rInterval = setInterval(function() {
             console.log(ii)
             usertime = ii
-		console.info(player.currentTIme)
-            if(player.currentTIme >= 40) {
+            if(ii==40) {
                 player.pause();
                 rPlayLink.classList.add('-enabled')
                 rPlayLink.style.display = 'block'
