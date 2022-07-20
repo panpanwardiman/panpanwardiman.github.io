@@ -1276,7 +1276,7 @@ try{
     <h3 class="rVideo-lead">Video Pilihan</h3>
 
     <div class="rVideo-player">
-                    <a href="javascript:void(0)" id="rVideoRedirect" class="rVideo-player-link" style="display:none;">
+                    <a href="javascript:void(0)" data-href="" id="rVideoRedirect" class="rVideo-player-link">
                 <div class="rVideo-player-paused">Lanjutkan Menonton Video</div>
             </a>
                 <button class="rVideo-button" type="button"><span>Hide</span></button>
@@ -1311,7 +1311,8 @@ try{
         "duration": 0,
         "position": "bottom-left",
         "text": "Tap to unmute"
-    }
+    },
+    "autopause": false
 }             
 
     // Create the player object ONCE only.
@@ -1369,7 +1370,6 @@ try{
                 if(ii==40) {
                     player.pause();
                     rPlayLink.classList.add('-enabled')
-                    rPlayLink.style.display = 'block'
                     clearInterval(rInterval);
                 }
                 ii++
@@ -1378,7 +1378,7 @@ try{
         if(!!rPlayLink) {
             rPlayLink.addEventListener('click', function(e){
                 e.preventDefault()
-                window.location = this.getAttribute('href') + '?strtime=' + usertime;
+                window.location = this.getAttribute('data-href') + '?strtime=' + usertime;
             })
         }
         player.addListener("video_ended", function(){
@@ -1419,7 +1419,7 @@ try{
                             urlVideo = `https://video.kompas.com/watch/${item.video_id}/${urlTitle}`
 
                             if (index == 0) {
-                                document.querySelector('.rVideo-player-link').setAttribute("href", urlVideo);
+                                document.querySelector('.rVideo-player-link').setAttribute("data-href", urlVideo);
                             }
                         
                         rvList += `<div id="rVideo-item-${item.video_id}" class="rVideo-item ${cls}" onclick="triggerOneVideo(${item.video_id})" data-video-index="${index}">
@@ -1533,7 +1533,15 @@ try{
                 </a>
             </li>
                         <li>
-                <a id="kompasplay-2" href="https://play.kompas.com/promo/168/survei-berhadiah-tentang-daily-product?source=play">
+                <a id="kompasplay-2" href="https://play.kompas.com/promo/171/survei-berhadiah-tentang-produk-kebutuhan-rumah-tangga?source=play">
+                    <div class="info-banner-list-img" data-placeholder="Isi Surveinya & Dapatkan Hadiahnya!">
+                        <img class="lozad" data-src="https://asset.kompas.com/crops/wFNztst2skdbyXfeWGmg9SNFSFQ=/0x0:0x0/300x200/data/photo/2022/07/20/62d7a5a1c2299.png" alt="Survei Berhadiah Tentang Produk Kebutuhan Rumah Tangga">
+                    </div>
+                    <h4 class="info-banner-list-title">Survei Berhadiah Tentang Produk Kebutuhan Rumah Tangga</h4>
+                </a>
+            </li>
+                        <li>
+                <a id="kompasplay-3" href="https://play.kompas.com/promo/168/survei-berhadiah-tentang-daily-product?source=play">
                     <div class="info-banner-list-img" data-placeholder="Isi survei tentang produk rutin kamu & dapatkan hadiahnya!">
                         <img class="lozad" data-src="https://asset.kompas.com/crops/CUvRSox0Yc1jwkMnPK92mudcBZQ=/0x0:0x0/300x200/data/photo/2022/07/20/62d788bae12c9.jpg" alt="Menangkan Hadiah Sebesar 9 Juta Rupiah">
                     </div>
@@ -1541,7 +1549,7 @@ try{
                 </a>
             </li>
                         <li>
-                <a id="kompasplay-3" href="https://play.kompas.com/games/start/17/lomba-kemerdekaan-paku-botol?source=play">
+                <a id="kompasplay-4" href="https://play.kompas.com/games/start/17/lomba-kemerdekaan-paku-botol?source=play">
                     <div class="info-banner-list-img" data-placeholder="Ayo Ikuti Lomba 17-an Memasukkan Paku ke Botol!">
                         <img class="lozad" data-src="https://asset.kompas.com/crops/f5wJvhDeOOXBohKR9gUZ3qsbE9s=/0x0:0x0/300x200/data/photo/2022/07/20/62d78bd02c3e4.png" alt="Latih Kesabaranmu di Game Paku Botol">
                     </div>
@@ -1549,7 +1557,7 @@ try{
                 </a>
             </li>
                         <li>
-                <a id="kompasplay-4" href="https://play.kompas.com/kuis/tts/117/tts-teka-teki-santuy-ep-89-penemuan-arkeologi-fenomenal-dari-zaman-china-kuno?source=play">
+                <a id="kompasplay-5" href="https://play.kompas.com/kuis/tts/117/tts-teka-teki-santuy-ep-89-penemuan-arkeologi-fenomenal-dari-zaman-china-kuno?source=play">
                     <div class="info-banner-list-img" data-placeholder="Ayo Tebak Penemuan Arkeologi Fenomenal dari Zaman China Kuno!">
                         <img class="lozad" data-src="https://asset.kompas.com/crops/4lvrlxnzk7mry7Sbgeg7BUvSoFE=/0x0:0x0/300x200/data/photo/2022/07/14/62d0450ea6fde.jpg" alt="TTS - Teka - Teki Santuy Ep 89 Penemuan Arkeologi Fenomenal dari Zaman China Kuno">
                     </div>
@@ -1557,7 +1565,7 @@ try{
                 </a>
             </li>
                         <li>
-                <a id="kompasplay-5" href="https://play.kompas.com/kuis/tts/116/tts-teka-teki-santuy-ep-88-naskah-dan-kode-paling-misterius-di-dunia?source=play">
+                <a id="kompasplay-6" href="https://play.kompas.com/kuis/tts/116/tts-teka-teki-santuy-ep-88-naskah-dan-kode-paling-misterius-di-dunia?source=play">
                     <div class="info-banner-list-img" data-placeholder="Tahukah Kamu Naskah dan Kode Paling Misterius di Dunia?">
                         <img class="lozad" data-src="https://asset.kompas.com/crops/SEJAhzu9SiFvr6ExKIkivyeUaDI=/0x0:0x0/300x200/data/photo/2022/07/08/62c7b25eab6d1.jpg" alt="TTS - Teka - Teki Santuy Ep 88 Naskah dan Kode Paling Misterius di Dunia">
                     </div>
@@ -1565,7 +1573,7 @@ try{
                 </a>
             </li>
                         <li>
-                <a id="kompasplay-6" href="https://play.kompas.com/kuis/tts/115/tts-teka-teki-santuy-ep-87-acak-kata-alat-musik-melodis?source=play">
+                <a id="kompasplay-7" href="https://play.kompas.com/kuis/tts/115/tts-teka-teki-santuy-ep-87-acak-kata-alat-musik-melodis?source=play">
                     <div class="info-banner-list-img" data-placeholder="Ayo tebak nama alat musik melodis ini!">
                         <img class="lozad" data-src="https://asset.kompas.com/crops/24SOnr4FvagJDlsFckXtGWWf6O8=/0x0:0x0/300x200/data/photo/2022/07/02/62c001e41927b.png" alt="TTS - Teka - Teki Santuy Ep 87 Acak Kata Alat Musik Melodis">
                     </div>
@@ -1588,22 +1596,8 @@ try{
 	<div class="ListCol">
 		<div class="most__no">1</div>
 		<div class="left ListCol1">
-			<a href="https://tekno.kompas.com/read/2022/07/18/11010077/kenapa-whatsapp-facebook-google-dkk-terancam-diblokir-kominfo-di-indonesia">Kenapa WhatsApp, Facebook, Google dkk Terancam Diblokir Kominfo di Indonesia?</a>
-						<div class="most__info">Dibaca 17.856 kali</div>
-					</div>
-		<div class="right ListCol2">
-			<a href="https://tekno.kompas.com/read/2022/07/18/11010077/kenapa-whatsapp-facebook-google-dkk-terancam-diblokir-kominfo-di-indonesia">
-				<img class ="lozad" data-src="https://asset.kompas.com/crops/HOhANFAuee7iVWFT5w-CcEjM3b8=/140x5:847x476/100x100/data/photo/2021/04/13/607521f8876d9.jpg" alt="Kenapa WhatsApp, Facebook, Google dkk Terancam Diblokir Kominfo di Indonesia?">
-			</a>
-		</div>
-		<div class="clearit"></div>
-	</div>
-</li><li class="box-shadow-new">
-	<div class="ListCol">
-		<div class="most__no">2</div>
-		<div class="left ListCol1">
 			<a href="https://tekno.kompas.com/read/2022/07/19/14000047/ini-dampaknya-jika-google-dkk-keukeuh-tidak-daftar-pse-kominfo">Ini Dampaknya jika Google dkk "Keukeuh" Tidak Daftar PSE Kominfo</a>
-						<div class="most__info">Dibaca 16.183 kali</div>
+						<div class="most__info">Dibaca 19.605 kali</div>
 					</div>
 		<div class="right ListCol2">
 			<a href="https://tekno.kompas.com/read/2022/07/19/14000047/ini-dampaknya-jika-google-dkk-keukeuh-tidak-daftar-pse-kominfo">
@@ -1614,10 +1608,24 @@ try{
 	</div>
 </li><li class="box-shadow-new">
 	<div class="ListCol">
+		<div class="most__no">2</div>
+		<div class="left ListCol1">
+			<a href="https://tekno.kompas.com/read/2022/07/18/11010077/kenapa-whatsapp-facebook-google-dkk-terancam-diblokir-kominfo-di-indonesia">Kenapa WhatsApp, Facebook, Google dkk Terancam Diblokir Kominfo di Indonesia?</a>
+						<div class="most__info">Dibaca 18.157 kali</div>
+					</div>
+		<div class="right ListCol2">
+			<a href="https://tekno.kompas.com/read/2022/07/18/11010077/kenapa-whatsapp-facebook-google-dkk-terancam-diblokir-kominfo-di-indonesia">
+				<img class ="lozad" data-src="https://asset.kompas.com/crops/HOhANFAuee7iVWFT5w-CcEjM3b8=/140x5:847x476/100x100/data/photo/2021/04/13/607521f8876d9.jpg" alt="Kenapa WhatsApp, Facebook, Google dkk Terancam Diblokir Kominfo di Indonesia?">
+			</a>
+		</div>
+		<div class="clearit"></div>
+	</div>
+</li><li class="box-shadow-new">
+	<div class="ListCol">
 		<div class="most__no">3</div>
 		<div class="left ListCol1">
 			<a href="https://tekno.kompas.com/read/2022/07/18/20000047/googlecom-dan-whatsappcom-muncul-di-daftar-pse-domestik-kominfo">Google.com dan Whatsapp.com Muncul di Daftar PSE Domestik Kominfo</a>
-						<div class="most__info">Dibaca 9.278 kali</div>
+						<div class="most__info">Dibaca 9.592 kali</div>
 					</div>
 		<div class="right ListCol2">
 			<a href="https://tekno.kompas.com/read/2022/07/18/20000047/googlecom-dan-whatsappcom-muncul-di-daftar-pse-domestik-kominfo">
@@ -1631,7 +1639,7 @@ try{
 		<div class="most__no">4</div>
 		<div class="left ListCol1">
 			<a href="https://tekno.kompas.com/read/2022/07/18/15000037/kominfo-pastikan-tidak-langsung-blokir-perusahaan-teknologi-yang-belum-daftar">Kominfo Pastikan Tidak Langsung Blokir Perusahaan Teknologi yang Belum Daftar PSE</a>
-						<div class="most__info">Dibaca 7.298 kali</div>
+						<div class="most__info">Dibaca 7.394 kali</div>
 					</div>
 		<div class="right ListCol2">
 			<a href="https://tekno.kompas.com/read/2022/07/18/15000037/kominfo-pastikan-tidak-langsung-blokir-perusahaan-teknologi-yang-belum-daftar">
@@ -1645,7 +1653,7 @@ try{
 		<div class="most__no">5</div>
 		<div class="left ListCol1">
 			<a href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya">Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya</a>
-						<div class="most__info">Dibaca 6.668 kali</div>
+						<div class="most__info">Dibaca 7.224 kali</div>
 					</div>
 		<div class="right ListCol2">
 			<a href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya">
@@ -1887,9 +1895,99 @@ try{
             <li class="box-shadow-new">
     <div class="ListCol">
         <div class="left ListCol1 right ">
+            <h3><a href="http://tekno.kompas.com/read/2022/07/20/14263447/kurang-dari-12-jam-batas-akhir-google-youtube-dan-twitter-belum-daftar-pse">Kurang dari 12 Jam Batas Akhir, Google, YouTube, dan Twitter Belum Daftar PSE Kominfo</a></h3>
+            <div class="article__channel">
+                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 20 menit lalu            </div>
+        </div>
+                    <div class="left ListCol2">
+                                <a href="http://tekno.kompas.com/read/2022/07/20/14263447/kurang-dari-12-jam-batas-akhir-google-youtube-dan-twitter-belum-daftar-pse">
+                    <img class="lozad" data-src="https://asset.kompas.com/crops/Z8FiIh9UscdyzaZ5omNDSpkRMNI=/93x437:3779x2895/100x100/data/photo/2022/03/24/623c117ca7d4f.jpg">
+                </a> 
+                            </div>
+                <div class="clearit"></div>
+    </div>
+</li>
+<li class="box-shadow-new">
+    <div class="ListCol">
+        <div class="left ListCol1 right ">
+            <h3><a href="http://tekno.kompas.com/read/2022/07/20/14150047/spesifikasi-dan-harga-samsung-galaxy-s22-ultra-terbaru-juli-2022">Spesifikasi dan Harga Samsung Galaxy S22 Ultra Terbaru Juli 2022</a></h3>
+            <div class="article__channel">
+                <strong><a class="" href="javascript:void(0)">Gadget</a></strong> - 31 menit lalu            </div>
+        </div>
+                    <div class="left ListCol2">
+                                <a href="http://tekno.kompas.com/read/2022/07/20/14150047/spesifikasi-dan-harga-samsung-galaxy-s22-ultra-terbaru-juli-2022">
+                    <img class="lozad" data-src="https://asset.kompas.com/crops/xfId18bRtGSwH1RLufuBPCRXoFc=/0x0:800x533/100x100/data/photo/2022/02/10/6204fc6e12a96.jpg">
+                </a> 
+                            </div>
+                <div class="clearit"></div>
+    </div>
+</li>
+<li class="box-shadow-new">
+    <div class="ListCol">
+        <div class="left ListCol1 right ">
+            <h3><a href="http://tekno.kompas.com/read/2022/07/20/13160027/free-fire-maintenance-hari-ini-kapan-selesai-">Free Fire Maintenance Hari Ini, Kapan Selesai?</a></h3>
+            <div class="article__channel">
+                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 2 jam lalu            </div>
+        </div>
+                    <div class="left ListCol2">
+                                <a href="http://tekno.kompas.com/read/2022/07/20/13160027/free-fire-maintenance-hari-ini-kapan-selesai-">
+                    <img class="lozad" data-src="https://asset.kompas.com/crops/AIVp2k_PrGlcxS9w0JFXbkhpWBA=/120x0:1920x1200/100x100/data/photo/2022/07/20/62d7943338dc2.jpg">
+                </a> 
+                            </div>
+                <div class="clearit"></div>
+    </div>
+</li>
+<li class="box-shadow-new">
+    <div class="ListCol">
+        <div class="left ListCol1 right ">
+            <h3><a href="http://tekno.kompas.com/read/2022/07/20/13000067/instagram-perbarui-fitur-peta-untuk-permudah-pengguna-cari-lokasi-kekinian">Instagram Perbarui Fitur Peta untuk Permudah Pengguna Cari Lokasi Kekinian</a></h3>
+            <div class="article__channel">
+                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 2 jam lalu            </div>
+        </div>
+                    <div class="left ListCol2">
+                                <a href="http://tekno.kompas.com/read/2022/07/20/13000067/instagram-perbarui-fitur-peta-untuk-permudah-pengguna-cari-lokasi-kekinian">
+                    <img class="lozad" data-src="https://asset.kompas.com/crops/RB5g8GCOpiUE3AFNbNX5UoYx3Ao=/86x0:974x592/100x100/data/photo/2022/07/20/62d7815d011e0.png">
+                </a> 
+                            </div>
+                <div class="clearit"></div>
+    </div>
+</li>
+<li class="box-shadow-new">
+    <div class="ListCol">
+        <div class="left ListCol1 right ">
+            <h3><a href="http://tekno.kompas.com/read/2022/07/20/12300077/daftar-game-yang-terdaftar-di-pse-kominfo-ada-pubg-mobile-mobile-legends-hingga">Daftar Game yang Terdaftar di PSE Kominfo, Ada PUBG Mobile, Mobile Legends, hingga Free Fire</a></h3>
+            <div class="article__channel">
+                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 2 jam lalu            </div>
+        </div>
+                    <div class="left ListCol2">
+                                <a href="http://tekno.kompas.com/read/2022/07/20/12300077/daftar-game-yang-terdaftar-di-pse-kominfo-ada-pubg-mobile-mobile-legends-hingga">
+                    <img class="lozad" data-src="https://asset.kompas.com/crops/S80ATXCRt4mt9NPie2GMrbqgZAU=/381x0:3245x1909/100x100/data/photo/2021/11/13/618f91c4da5cf.jpg">
+                </a> 
+                            </div>
+                <div class="clearit"></div>
+    </div>
+</li>
+<li class="box-shadow-new">
+    <div class="ListCol">
+        <div class="left ListCol1 right ">
+            <h3><a href="http://tekno.kompas.com/read/2022/07/20/12150047/daftar-aplikasi-chat-dan-medsos-yang-aman-dari-pemblokiran-kominfo">Daftar Aplikasi Chat dan Medsos yang Aman dari Pemblokiran Kominfo</a></h3>
+            <div class="article__channel">
+                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 3 jam lalu            </div>
+        </div>
+                    <div class="left ListCol2">
+                                <a href="http://tekno.kompas.com/read/2022/07/20/12150047/daftar-aplikasi-chat-dan-medsos-yang-aman-dari-pemblokiran-kominfo">
+                    <img class="lozad" data-src="https://asset.kompas.com/crops/a1JB71971Aqn2hqJ-nEPI5K8h9o=/0x0:4000x2667/100x100/data/photo/2022/06/22/62b2bdb00cd1b.jpg">
+                </a> 
+                            </div>
+                <div class="clearit"></div>
+    </div>
+</li>
+<li class="box-shadow-new">
+    <div class="ListCol">
+        <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/12000057/cara-menyembunyikan-aplikasi-di-hp-realme">Cara Menyembunyikan Aplikasi di HP Realme</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 16 menit lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 3 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/12000057/cara-menyembunyikan-aplikasi-di-hp-realme">
@@ -1904,7 +2002,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/11300077/telkomsel-optimalkan-jaringan-broadband-untuk-dukung-g20-di-indonesia">Telkomsel Optimalkan Jaringan Broadband untuk Dukung G20 di Indonesia</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 46 menit lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 3 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/11300077/telkomsel-optimalkan-jaringan-broadband-untuk-dukung-g20-di-indonesia">
@@ -1919,7 +2017,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/19/12020067/mengapa-google-dan-platform-digital-lain-tak-segera-daftar-pse">Mengapa Google dan Platform Digital Lain Tak Segera Daftar PSE?</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 1 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 4 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/19/12020067/mengapa-google-dan-platform-digital-lain-tak-segera-daftar-pse">
@@ -1934,7 +2032,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-">Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 1 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 4 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-">
@@ -1949,7 +2047,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/10450057/samsung-pastikan-galaxy-unpacked-digelar-10-agustus-rilis-z-fold-4-dan-z-flip-4">Samsung Pastikan Galaxy Unpacked Digelar 10 Agustus, Rilis Z Fold 4 dan Z Flip 4?</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Gadget</a></strong> - 2 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Gadget</a></strong> - 4 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/10450057/samsung-pastikan-galaxy-unpacked-digelar-10-agustus-rilis-z-fold-4-dan-z-flip-4">
@@ -1964,7 +2062,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/19/10150087/7-pasal-karet-di-aturan-pse-kominfo-yang-ancam-blokir-google-dkk">7 "Pasal Karet" di Aturan PSE Kominfo yang Ancam Blokir Google dkk</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 2 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 4 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/19/10150087/7-pasal-karet-di-aturan-pse-kominfo-yang-ancam-blokir-google-dkk">
@@ -1979,7 +2077,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/10150067/daftar-platform-digital-yang-sudah-terdaftar-di-halaman-pse-kominfo">Daftar Platform Digital yang Sudah Terdaftar di Halaman PSE Kominfo</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 2 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 5 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/10150067/daftar-platform-digital-yang-sudah-terdaftar-di-halaman-pse-kominfo">
@@ -1994,7 +2092,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/19/14364087/3-tahapan-sanksi-bagi-google-dkk-yang-belum-daftar-pse-kominfo">3 Tahapan Sanksi Bagi Google dkk yang Belum Daftar PSE Kominfo</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 2 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 5 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/19/14364087/3-tahapan-sanksi-bagi-google-dkk-yang-belum-daftar-pse-kominfo">
@@ -2009,101 +2107,11 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/10000037/apple-mulai-berhemat-batasi-rekrutmen-dan-pengeluaran-tahun-depan">Apple Mulai Berhemat, Batasi Rekrutmen dan Pengeluaran Tahun Depan</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 2 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 5 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/10000037/apple-mulai-berhemat-batasi-rekrutmen-dan-pengeluaran-tahun-depan">
                     <img class="lozad" data-src="https://asset.kompas.com/crops/A2LDMwsjAhGphwdo7k0Cn2pmfXg=/0x30:800x563/100x100/data/photo/2022/01/28/61f35384a326b.jpg">
-                </a> 
-                            </div>
-                <div class="clearit"></div>
-    </div>
-</li>
-<li class="box-shadow-new">
-    <div class="ListCol">
-        <div class="left ListCol1 right ">
-            <h3><a href="http://tekno.kompas.com/read/2022/07/20/09300017/tabel-spesifikasi-dan-harga-xiaomi-12-lite-di-indonesia">Tabel Spesifikasi dan Harga Xiaomi 12 Lite di Indonesia</a></h3>
-            <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Gadget</a></strong> - 3 jam lalu            </div>
-        </div>
-                    <div class="left ListCol2">
-                                <a href="http://tekno.kompas.com/read/2022/07/20/09300017/tabel-spesifikasi-dan-harga-xiaomi-12-lite-di-indonesia">
-                    <img class="lozad" data-src="https://asset.kompas.com/crops/oH2DAIOXT8fmXtbPoevrnx2gmdU=/54x50:1093x742/100x100/data/photo/2022/07/19/62d6511165109.jpg">
-                </a> 
-                            </div>
-                <div class="clearit"></div>
-    </div>
-</li>
-<li class="box-shadow-new">
-    <div class="ListCol">
-        <div class="left ListCol1 right ">
-            <h3><a href="http://tekno.kompas.com/read/2022/07/20/09000027/jadwal-dan-daftar-tim-pubg-mobile-yang-bertanding-di-pmpl-id-fall-2022">Jadwal dan Daftar Tim PUBG Mobile yang Bertanding di PMPL ID Fall 2022</a></h3>
-            <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 3 jam lalu            </div>
-        </div>
-                    <div class="left ListCol2">
-                                <a href="http://tekno.kompas.com/read/2022/07/20/09000027/jadwal-dan-daftar-tim-pubg-mobile-yang-bertanding-di-pmpl-id-fall-2022">
-                    <img class="lozad" data-src="https://asset.kompas.com/crops/RKoDp0jwjTDqh7rZvcOY0-jPrNo=/36x0:726x460/100x100/data/photo/2022/07/19/62d6607d02b06.jpg">
-                </a> 
-                            </div>
-                <div class="clearit"></div>
-    </div>
-</li>
-<li class="box-shadow-new">
-    <div class="ListCol">
-        <div class="left ListCol1 right ">
-            <h3><a href="http://tekno.kompas.com/read/2022/04/05/08010087/nokia-edge-2022-benar-ada-atau-rumor-belaka-ini-faktanya">Nokia Edge 2022 Benar Ada atau Rumor Belaka? Ini Faktanya</a></h3>
-            <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Gadget</a></strong> - 3 jam lalu            </div>
-        </div>
-                    <div class="left ListCol2">
-                                <a href="http://tekno.kompas.com/read/2022/04/05/08010087/nokia-edge-2022-benar-ada-atau-rumor-belaka-ini-faktanya">
-                    <img class="lozad" data-src="https://asset.kompas.com/crops/TBAJhXzRZZGL8MK3o05taAxDp6U=/62x0:782x480/100x100/data/photo/2022/04/05/624b88d884209.jpg">
-                </a> 
-                            </div>
-                <div class="clearit"></div>
-    </div>
-</li>
-<li class="box-shadow-new">
-    <div class="ListCol">
-        <div class="left ListCol1 right ">
-            <h3><a href="http://tekno.kompas.com/read/2022/07/19/14000047/ini-dampaknya-jika-google-dkk-keukeuh-tidak-daftar-pse-kominfo">Ini Dampaknya jika Google dkk "Keukeuh" Tidak Daftar PSE Kominfo</a></h3>
-            <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 4 jam lalu            </div>
-        </div>
-                    <div class="left ListCol2">
-                                <a href="http://tekno.kompas.com/read/2022/07/19/14000047/ini-dampaknya-jika-google-dkk-keukeuh-tidak-daftar-pse-kominfo">
-                    <img class="lozad" data-src="https://asset.kompas.com/crops/Z8FiIh9UscdyzaZ5omNDSpkRMNI=/93x437:3779x2895/100x100/data/photo/2022/03/24/623c117ca7d4f.jpg">
-                </a> 
-                            </div>
-                <div class="clearit"></div>
-    </div>
-</li>
-<li class="box-shadow-new">
-    <div class="ListCol">
-        <div class="left ListCol1 right ">
-            <h3><a href="http://tekno.kompas.com/read/2022/07/19/19300037/safenet-aturan-pse-kominfo-bisa-bungkam-ekspresi-dan-opini-publik">SAFEnet: Aturan PSE Kominfo Bisa Bungkam Ekspresi dan Opini Publik</a></h3>
-            <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 4 jam lalu            </div>
-        </div>
-                    <div class="left ListCol2">
-                                <a href="http://tekno.kompas.com/read/2022/07/19/19300037/safenet-aturan-pse-kominfo-bisa-bungkam-ekspresi-dan-opini-publik">
-                    <img class="lozad" data-src="https://asset.kompas.com/crops/s3vuwPhJOcxBuQu5v9N21FkFkLQ=/68x34:948x621/100x100/data/photo/2018/11/19/3554226220.jpg">
-                </a> 
-                            </div>
-                <div class="clearit"></div>
-    </div>
-</li>
-<li class="box-shadow-new">
-    <div class="ListCol">
-        <div class="left ListCol1 right ">
-            <h3><a href="http://tekno.kompas.com/read/2022/07/20/08000007/whatsapp-sudah-terdaftar-di-pse-kominfo-susul-facebook-dan-instagram">WhatsApp Sudah Terdaftar di PSE Kominfo, Susul Facebook dan Instagram</a></h3>
-            <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 4 jam lalu            </div>
-        </div>
-                    <div class="left ListCol2">
-                                <a href="http://tekno.kompas.com/read/2022/07/20/08000007/whatsapp-sudah-terdaftar-di-pse-kominfo-susul-facebook-dan-instagram">
-                    <img class="lozad" data-src="https://asset.kompas.com/crops/cL88lkF6HwRCV5FKZmQtP5zpozI=/0x0:1200x800/100x100/data/photo/2020/10/09/5f7ffff4175ef.jpg">
                 </a> 
                             </div>
                 <div class="clearit"></div>
@@ -2124,11 +2132,11 @@ try{
            <li class="box-shadow-new ">
     <div class="ListCol">
         <div class="left ListCol1">
-            <a href="https://www.sonora.id/read/423384384/5-zodiak-yang-suka-memanfaatkan-kebaikan-orang-lain-datang-kalau-ada-maunya-doang?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">5 Zodiak yang Suka Memanfaatkan Kebaikan Orang Lain! Datang Kalau Ada Maunya Doang</a>
+            <a href="https://www.sonora.id/read/423385103/catat-6-tips-jitu-lolos-wawancara-kerja-pertama-kali-99-keterima?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">Catat! 6 Tips Jitu Lolos Wawancara Kerja Pertama Kali, 99% Keterima!</a>
         </div>
         <div class="right ListCol2">
-            <a href="https://www.sonora.id/read/423384384/5-zodiak-yang-suka-memanfaatkan-kebaikan-orang-lain-datang-kalau-ada-maunya-doang?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">
-                <img class="lozad" data-src="https://imgx.sonora.id/crop/0x0:0x0/945x630/photo/2022/07/20/featured-71jpg-20220720075728.jpg" alt="5 Zodiak yang Suka Memanfaatkan Kebaikan Orang Lain! Datang Kalau Ada Maunya Doang">
+            <a href="https://www.sonora.id/read/423385103/catat-6-tips-jitu-lolos-wawancara-kerja-pertama-kali-99-keterima?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">
+                <img class="lozad" data-src="https://imgx.sonora.id/crop/0x0:0x0/945x630/photo/2022/07/20/featured-73jpg-20220720013431.jpg" alt="Catat! 6 Tips Jitu Lolos Wawancara Kerja Pertama Kali, 99% Keterima!">
             </a>
         </div>
         <div class="clearit"></div>
@@ -2136,11 +2144,11 @@ try{
 </li><li class="box-shadow-new ">
     <div class="ListCol">
         <div class="left ListCol1">
-            <a href="https://www.sonora.id/read/423384845/5-zodiak-yang-gak-bisa-sembunyikan-rasa-bencinya-kalau-gak-suka-pasti-keliatan-banget?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">5 Zodiak yang Gak Bisa Sembunyikan Rasa Bencinya, Kalau Gak Suka Pasti Keliatan Banget!</a>
+            <a href="https://www.sonora.id/read/423384630/wah-baru-tahu-ternyata-bentuk-bibir-bisa-ungkap-karakter-orang-kamu-tipe-yang-seperti-apa?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">WAH Baru Tahu! Ternyata Bentuk Bibir Bisa Ungkap Karakter Orang, Kamu Tipe yang Seperti Apa?</a>
         </div>
         <div class="right ListCol2">
-            <a href="https://www.sonora.id/read/423384845/5-zodiak-yang-gak-bisa-sembunyikan-rasa-bencinya-kalau-gak-suka-pasti-keliatan-banget?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">
-                <img class="lozad" data-src="https://imgx.sonora.id/crop/0x0:0x0/945x630/photo/2022/07/20/benci-steve-harvey-via-unsplash-20220720112731.jpg" alt="5 Zodiak yang Gak Bisa Sembunyikan Rasa Bencinya, Kalau Gak Suka Pasti Keliatan Banget!">
+            <a href="https://www.sonora.id/read/423384630/wah-baru-tahu-ternyata-bentuk-bibir-bisa-ungkap-karakter-orang-kamu-tipe-yang-seperti-apa?utm_source=kompas.com+widget&medium=referral&campaign=Sonora.id+Widget+on+Kompas.com" target="_blank">
+                <img class="lozad" data-src="https://imgx.sonora.id/crop/0x0:0x0/945x630/photo/2022/07/20/pexels-mentatdgt-1399288-1jpg-20220720100053.jpg" alt="WAH Baru Tahu! Ternyata Bentuk Bibir Bisa Ungkap Karakter Orang, Kamu Tipe yang Seperti Apa?">
             </a>
         </div>
         <div class="clearit"></div>
@@ -2438,7 +2446,7 @@ function showKgModal() {
 
 function completeProfile() {
     const token = ("; "+document.cookie).split("; kmp_uid=").pop().split(";").shift();
-    const jkom_hash = "$2y$10$.vRAYymTv1oUa4HHRbGP6uSqinEn25IHgvvlXJ0hQagdHeppxZRrq";
+    const jkom_hash = "$2y$10$KxvR9NWs.4/t1eDhHVe0iubV9ZAjZq9G5INTcKTYlcJ8MoGCMSqL6";
     window.location.href = "https://account.kompas.com/verify_data?source=kompascom&medium=popupkomentar&vid="+token+"&rurl="+btoa(window.location.href)+"&jkom="+jkom_hash;
 }
 </script>
