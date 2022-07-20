@@ -2075,9 +2075,9 @@ function fb_share(e,o){return u=o,t=e,window.open("http://www.facebook.com/share
 <h3 class="rVideo-lead">Video Pilihan</h3> 
 
 <div class="rVideo-player rVideo-player-unready">
-            <div id="rVideoRedirect" class="rVideo-player-link">
-            <div class="rVideo-player-paused"><a href="https://video.kompas.com/watch/159876/unboxing-dan-handson-xiaomi-lite-versi-indonesia"> Lanjutkan Menonton Video</a></div>
-        </div>
+            <a href="https://video.kompas.com/watch/159876/unboxing-dan-handson-xiaomi-lite-versi-indonesia" id="rVideoRedirect" class="rVideo-player-link">
+            <div class="rVideo-player-paused">Lanjutkan Menonton Video</div>
+        </a>
         <button class="rVideo-button" type="button"><span>Hide</span></button>
     <div id="idVideoCtrForWidget" style="position:absolute;display:block;bottom:0px;left:0px;right:0px;top:0px"></div>
 </div>
@@ -2185,9 +2185,9 @@ player.addListener("videochange", cbOnVideoChanged);
         }, 1000);
     });
     if(!!rPlayLink) {
-        rPlayLink.addEventListener('click', function(e){
+        document.querySelector('.rVideo-player-paused').addEventListener('click', function(e){
             e.preventDefault()
-            window.location = this.getAttribute('href') + '?strtime=' + usertime;
+            window.location = rPlayLink.getAttribute('href') + '?strtime=' + usertime;
         })
     }
 
