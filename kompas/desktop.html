@@ -2188,18 +2188,21 @@ player.addListener("videochange", cbOnVideoChanged);
     let rPlayLink = document.getElementById('rVideoRedirect')
     player.addListener("video_started", function(){
         let ii = 0;
-        console.log("video_started"+ii)
-        rInterval = setInterval(function() {
-            console.log(ii)
-            usertime = ii
-            if(ii==40) {
-                player.pause();
-                rPlayLink.classList.add('-enabled')
-                rPlayLink.style.display = 'block'
-                clearInterval(rInterval);
-            }
-            ii++
-        }, 1000);
+        // console.log("video_started"+ii)
+        // rInterval = setInterval(function() {
+        //     console.log(ii)
+        //     usertime = ii
+        //     if(ii==40) {
+        //         player.pause();
+        //         rPlayLink.classList.add('-enabled')
+        //         rPlayLink.style.display = 'block'
+        //         clearInterval(rInterval);
+        //     }
+        //     ii++
+        // }, 1000);
+        if (player.currentTime == 40) {
+            console.info(player.currentTime)
+        }
     });
     if(!!rPlayLink) {        
         rPlayLink.addEventListener('click', function(e){
@@ -2445,16 +2448,16 @@ function timeFormatJixie(value) {
             </div>
                     <div class="col-bs12-3">
                 <div class="article__grid">
-                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/15/13000067/xiaomi-12-lite-5g-rilis-di-indonesia-19-juli-ini-bocoran-harga-dan">
-                        <div class="article__subtitle">GADGET</div>
+                    <div class="article__boxsubtitle" id="https://makemac.grid.id/read/213017720/twitter-siap-luncurkan-3-fitur-baru-di-ios-rilis-akhir-tahun?utm_source=kompas.com&utm_medium=jaim-box">
+                        <div class="article__subtitle">NEWS</div>
                     </div>
                     <div class="article__asset">
-                        <a title="Xiaomi 12 Lite 5G Rilis di Indonesia 19 Juli, Ini Bocoran Harga dan Spesifikasinya" href="https://tekno.kompas.com/read/2022/07/15/13000067/xiaomi-12-lite-5g-rilis-di-indonesia-19-juli-ini-bocoran-harga-dan" position="2">
-                            <img id="https://tekno.kompas.com/read/2022/07/15/13000067/xiaomi-12-lite-5g-rilis-di-indonesia-19-juli-ini-bocoran-harga-dan" class="lozad" data-src="https://asset.kompas.com/crops/vKInXXoENi08xlsEak8cJzuiAUQ=/595x277:1282x735/170x113/data/photo/2022/07/15/62d0e2d1313d8.jpg" alt="Xiaomi 12 Lite 5G Rilis di Indonesia 19 Juli, Ini Bocoran Harga dan Spesifikasinya">                        </a>
+                        <a title="Twitter Siap Luncurkan 3 Fitur Baru di iOS, Rilis Akhir Tahun" href="https://makemac.grid.id/read/213017720/twitter-siap-luncurkan-3-fitur-baru-di-ios-rilis-akhir-tahun?utm_source=kompas.com&utm_medium=jaim-box" position="2">
+                            <img id="https://makemac.grid.id/read/213017720/twitter-siap-luncurkan-3-fitur-baru-di-ios-rilis-akhir-tahun?utm_source=kompas.com&utm_medium=jaim-box" class="lozad" data-src="https://asset-a.grid.id/crop/0x0:0x0/750x500/photo/2021/05/04/twitterjpg-20210504104427.jpg" alt="Twitter Siap Luncurkan 3 Fitur Baru di iOS, Rilis Akhir Tahun">                        </a>
                     </div>
                     <div class="article__box">
                         <div class="article__title">
-                            <a class="article__link" title="Xiaomi 12 Lite 5G Rilis di Indonesia 19 Juli, Ini Bocoran Harga dan Spesifikasinya" position="2" href="https://tekno.kompas.com/read/2022/07/15/13000067/xiaomi-12-lite-5g-rilis-di-indonesia-19-juli-ini-bocoran-harga-dan" style="font-size: 14px;">Xiaomi 12 Lite 5G Rilis di...</a>
+                            <a class="article__link" title="Twitter Siap Luncurkan 3 Fitur Baru di iOS, Rilis Akhir Tahun" position="2" href="https://makemac.grid.id/read/213017720/twitter-siap-luncurkan-3-fitur-baru-di-ios-rilis-akhir-tahun?utm_source=kompas.com&utm_medium=jaim-box" style="font-size: 14px;">Twitter Siap Luncurkan 3 Fitur Baru...</a>
                         </div>
                     </div>
                 </div>
@@ -2477,32 +2480,32 @@ function timeFormatJixie(value) {
             </div>
                     <div class="col-bs12-3">
                 <div class="article__grid">
-                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-">
+                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/15/13000067/xiaomi-12-lite-5g-rilis-di-indonesia-19-juli-ini-bocoran-harga-dan">
                         <div class="article__subtitle">GADGET</div>
                     </div>
                     <div class="article__asset">
-                        <a title="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?" href="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" position="4">
-                            <img id="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" class="lozad" data-src="https://asset.kompas.com/crops/L6Md9wHAzuCyh0kf1ZhVIxwNYYQ=/79x96:1355x946/170x113/data/photo/2022/04/08/624fc0abf1b26.png" alt="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?">                        </a>
+                        <a title="Xiaomi 12 Lite 5G Rilis di Indonesia 19 Juli, Ini Bocoran Harga dan Spesifikasinya" href="https://tekno.kompas.com/read/2022/07/15/13000067/xiaomi-12-lite-5g-rilis-di-indonesia-19-juli-ini-bocoran-harga-dan" position="4">
+                            <img id="https://tekno.kompas.com/read/2022/07/15/13000067/xiaomi-12-lite-5g-rilis-di-indonesia-19-juli-ini-bocoran-harga-dan" class="lozad" data-src="https://asset.kompas.com/crops/vKInXXoENi08xlsEak8cJzuiAUQ=/595x277:1282x735/170x113/data/photo/2022/07/15/62d0e2d1313d8.jpg" alt="Xiaomi 12 Lite 5G Rilis di Indonesia 19 Juli, Ini Bocoran Harga dan Spesifikasinya">                        </a>
                     </div>
                     <div class="article__box">
                         <div class="article__title">
-                            <a class="article__link" title="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?" position="4" href="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" style="font-size: 14px;">Xiaomi 12T Meluncur di Indonesia Sebentar...</a>
+                            <a class="article__link" title="Xiaomi 12 Lite 5G Rilis di Indonesia 19 Juli, Ini Bocoran Harga dan Spesifikasinya" position="4" href="https://tekno.kompas.com/read/2022/07/15/13000067/xiaomi-12-lite-5g-rilis-di-indonesia-19-juli-ini-bocoran-harga-dan" style="font-size: 14px;">Xiaomi 12 Lite 5G Rilis di...</a>
                         </div>
                     </div>
                 </div>
             </div>
                     <div class="col-bs12-3">
                 <div class="article__grid">
-                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya">
+                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-">
                         <div class="article__subtitle">GADGET</div>
                     </div>
                     <div class="article__asset">
-                        <a title="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya" href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" position="5">
-                            <img id="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" class="lozad" data-src="https://asset.kompas.com/crops/G1gWK8RfXaoR7PT1zJ3biI4Z8KU=/0x0:1561x1041/170x113/data/photo/2022/07/19/62d6545742e69.jpg" alt="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya">                        </a>
+                        <a title="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?" href="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" position="5">
+                            <img id="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" class="lozad" data-src="https://asset.kompas.com/crops/L6Md9wHAzuCyh0kf1ZhVIxwNYYQ=/79x96:1355x946/170x113/data/photo/2022/04/08/624fc0abf1b26.png" alt="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?">                        </a>
                     </div>
                     <div class="article__box">
                         <div class="article__title">
-                            <a class="article__link" title="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya" position="5" href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" style="font-size: 14px;">Xiaomi 12 Lite Resmi Masuk Indonesia,...</a>
+                            <a class="article__link" title="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?" position="5" href="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" style="font-size: 14px;">Xiaomi 12T Meluncur di Indonesia Sebentar...</a>
                         </div>
                     </div>
                 </div>
@@ -2541,16 +2544,16 @@ function timeFormatJixie(value) {
             </div>
                     <div class="col-bs12-3">
                 <div class="article__grid">
-                    <div class="article__boxsubtitle" id="https://www.kompas.com/tren/read/2022/07/20/070000465/update-corona-20-juli--indonesia-catat-rekor-kasus-selama-2-bulan-bocah-4">
-                        <div class="article__subtitle">TREN</div>
+                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya">
+                        <div class="article__subtitle">GADGET</div>
                     </div>
                     <div class="article__asset">
-                        <a title="Update Corona 20 Juli: Indonesia Catat Rekor Kasus Selama 2 Bulan | Bocah 4 Tahun di Singapura Meninggal Akibat Covid-19" href="https://www.kompas.com/tren/read/2022/07/20/070000465/update-corona-20-juli--indonesia-catat-rekor-kasus-selama-2-bulan-bocah-4" position="8">
-                            <img id="https://www.kompas.com/tren/read/2022/07/20/070000465/update-corona-20-juli--indonesia-catat-rekor-kasus-selama-2-bulan-bocah-4" class="lozad" data-src="https://asset.kompas.com/crops/9K90bNLlBVSMcsGYBRdFY1Iuvzw=/0x0:1000x667/170x113/data/photo/2021/09/12/613e28a6cea09.jpg" alt="Update Corona 20 Juli: Indonesia Catat Rekor Kasus Selama 2 Bulan | Bocah 4 Tahun di Singapura Meninggal Akibat Covid-19">                        </a>
+                        <a title="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya" href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" position="8">
+                            <img id="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" class="lozad" data-src="https://asset.kompas.com/crops/G1gWK8RfXaoR7PT1zJ3biI4Z8KU=/0x0:1561x1041/170x113/data/photo/2022/07/19/62d6545742e69.jpg" alt="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya">                        </a>
                     </div>
                     <div class="article__box">
                         <div class="article__title">
-                            <a class="article__link" title="Update Corona 20 Juli: Indonesia Catat Rekor Kasus Selama 2 Bulan | Bocah 4 Tahun di Singapura Meninggal Akibat Covid-19" position="8" href="https://www.kompas.com/tren/read/2022/07/20/070000465/update-corona-20-juli--indonesia-catat-rekor-kasus-selama-2-bulan-bocah-4" style="font-size: 14px;">Update Corona 20 Juli: Indonesia Catat...</a>
+                            <a class="article__link" title="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya" position="8" href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" style="font-size: 14px;">Xiaomi 12 Lite Resmi Masuk Indonesia,...</a>
                         </div>
                     </div>
                 </div>
@@ -3226,6 +3229,19 @@ function timeFormatJixie(value) {
             <div class="latest ga--latest mt2 clearfix">
                 <div class="article__list clearfix">
   <div class="article__list__asset clearfix">
+        <div class="article__asset"><a href="https://tekno.kompas.com/read/2022/07/20/12150047/daftar-aplikasi-chat-dan-medsos-yang-aman-dari-pemblokiran-kominfo" target="_parent"><img class="lozad" data-src="https://asset.kompas.com/crops/vLZ2c6p6fq0Thy4pwFqHozxby2Y=/0x0:4000x2667/177x117/data/photo/2022/06/22/62b2bdb00cd1b.jpg" alt="Daftar Aplikasi Chat dan Medsos yang Aman dari Pemblokiran Kominfo"/></a></div>
+  </div>
+  <div class="article__list__title">
+    <h3 class="article__title article__title--medium"><a class="article__link" href="https://tekno.kompas.com/read/2022/07/20/12150047/daftar-aplikasi-chat-dan-medsos-yang-aman-dari-pemblokiran-kominfo" target="_parent">Daftar Aplikasi Chat dan Medsos yang Aman dari Pemblokiran Kominfo</a></div>
+  </h3>
+  <div class="article__list__info">
+    <div class="article__subtitle article__subtitle--inline ">e-Business</div>
+    <div class="article__date">20/07/2022, 12:15 WIB</div>
+      </div>
+  <div class="clearfix"></div>
+</div>
+<div class="article__list clearfix">
+  <div class="article__list__asset clearfix">
         <div class="article__asset"><a href="https://tekno.kompas.com/read/2022/07/20/12000057/cara-menyembunyikan-aplikasi-di-hp-realme" target="_parent"><img class="lozad" data-src="https://asset.kompas.com/crops/ZOhAl9CgftXz5DQjYrSCO5cX4Ho=/170x74:1256x798/177x117/data/photo/2022/04/07/624eb582b241b.jpeg" alt="Cara Menyembunyikan Aplikasi di HP Realme"/></a></div>
   </div>
   <div class="article__list__title">
@@ -3403,19 +3419,6 @@ function timeFormatJixie(value) {
   <div class="article__list__info">
     <div class="article__subtitle article__subtitle--inline ">e-Business</div>
     <div class="article__date">20/07/2022, 08:24 WIB</div>
-      </div>
-  <div class="clearfix"></div>
-</div>
-<div class="article__list clearfix">
-  <div class="article__list__asset clearfix">
-        <div class="article__asset"><a href="https://tekno.kompas.com/read/2022/07/20/08000007/whatsapp-sudah-terdaftar-di-pse-kominfo-susul-facebook-dan-instagram" target="_parent"><img class="lozad" data-src="https://asset.kompas.com/crops/OiyMgshdqzsDsVCE58BC5DBc_H0=/0x0:1200x800/177x117/data/photo/2020/10/09/5f7ffff4175ef.jpg" alt="WhatsApp Sudah Terdaftar di PSE Kominfo, Susul Facebook dan Instagram"/></a></div>
-  </div>
-  <div class="article__list__title">
-    <h3 class="article__title article__title--medium"><a class="article__link" href="https://tekno.kompas.com/read/2022/07/20/08000007/whatsapp-sudah-terdaftar-di-pse-kominfo-susul-facebook-dan-instagram" target="_parent">WhatsApp Sudah Terdaftar di PSE Kominfo, Susul Facebook dan Instagram</a></div>
-  </h3>
-  <div class="article__list__info">
-    <div class="article__subtitle article__subtitle--inline ">Internet</div>
-    <div class="article__date">20/07/2022, 08:00 WIB</div>
       </div>
   <div class="clearfix"></div>
 </div>
@@ -4338,7 +4341,7 @@ function showKgModal() {
 
 function completeProfile() {
     const token = ("; "+document.cookie).split("; kmp_uid=").pop().split(";").shift();
-    const jkom_hash = "$2y$10$1J6CfXXXRzLBUaSr4raZj.uQtDmILnm5hD6Sr/lyTAhQqHWr0x35G";
+    const jkom_hash = "$2y$10$WL6CHOxlLUvJR3YPPo6MiOPyZYMWmkIcOAWHETtDoaD3QNWhcIWYC";
     window.location.href = "https://account.kompas.com/verify_data?source=kompascom&medium=popupkomentar&vid="+token+"&rurl="+btoa(window.location.href)+"&jkom="+jkom_hash;
 }
 </script>
