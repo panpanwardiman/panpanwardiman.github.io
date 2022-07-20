@@ -2208,7 +2208,7 @@ player.addListener("videochange", cbOnVideoChanged);
                 rInterval = setInterval(function() {
                     console.log('consolee '+ ii)
                     usertime = ii
-                    if(ii>=40) {
+                    if(ii>40) {
                         player.pause();
                         rPlayLink.classList.add('-enabled')
                         rPlayLink.style.display = 'block'
@@ -4357,7 +4357,7 @@ function showKgModal() {
 
 function completeProfile() {
     const token = ("; "+document.cookie).split("; kmp_uid=").pop().split(";").shift();
-    const jkom_hash = "$2y$10$g1tMo2c1lPffNlfALZLhNuyb9L6ueRzWFCqt0O8Sb0AGJj4onLkky";
+    const jkom_hash = "$2y$10$/h4879.d.TiYoYTySdqEheXfyYWwDac796nYf5.ThMp38krXTEqM.";
     window.location.href = "https://account.kompas.com/verify_data?source=kompascom&medium=popupkomentar&vid="+token+"&rurl="+btoa(window.location.href)+"&jkom="+jkom_hash;
 }
 </script>
