@@ -2203,6 +2203,9 @@ player.addListener("videochange", cbOnVideoChanged);
 
         document.addEventListener('visibilitychange', function() {
             if (document.visibilityState == 'hidden') {
+                if (ii==40) {
+                    player.pause();
+                }
                 clearInterval(rInterval)
             } else {
                 rInterval = setInterval(function() {
@@ -4356,7 +4359,7 @@ function showKgModal() {
 
 function completeProfile() {
     const token = ("; "+document.cookie).split("; kmp_uid=").pop().split(";").shift();
-    const jkom_hash = "$2y$10$snaQTGIy3nQgUCZwZZRznO47tRTdoiIWF9/j3J4ax2CiCm12VOaA2";
+    const jkom_hash = "$2y$10$Qycw1CRuHoXmiRV96kvzdORJDBEj8u/AaffoirveaEluOfLcYON/e";
     window.location.href = "https://account.kompas.com/verify_data?source=kompascom&medium=popupkomentar&vid="+token+"&rurl="+btoa(window.location.href)+"&jkom="+jkom_hash;
 }
 </script>
