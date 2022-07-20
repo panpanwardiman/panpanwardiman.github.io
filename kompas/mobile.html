@@ -1276,7 +1276,7 @@ try{
     <h3 class="rVideo-lead">Video Pilihan</h3>
 
     <div class="rVideo-player">
-                    <a href="https://video.kompas.com/watch/159876/unboxing-dan-handson-xiaomi-lite-versi-indonesia" id="rVideoRedirect" class="rVideo-player-link">
+                    <a href="javascript:void(0)" id="rVideoRedirect" class="rVideo-player-link">
                 <div class="rVideo-player-paused">Lanjutkan Menonton Video</div>
             </a>
                 <button class="rVideo-button" type="button"><span>Hide</span></button>
@@ -1377,8 +1377,9 @@ try{
         if(!!rPlayLink) {
             rPlayLink.addEventListener('click', function(e){
                 e.preventDefault()
-		console.info(this.getAttribute('href') + '?strtime=' + usertime);
-                window.location = this.getAttribute('href') + '?strtime=' + usertime;
+                if (this.classList.contains('-enabled')) {
+                    window.location = this.getAttribute('data-href') + '?strtime=' + usertime;
+                }
             })
         }
         player.addListener("video_ended", function(){
@@ -1871,9 +1872,24 @@ try{
             <li class="box-shadow-new">
     <div class="ListCol">
         <div class="left ListCol1 right ">
+            <h3><a href="http://tekno.kompas.com/read/2022/07/20/11300077/telkomsel-optimalkan-jaringan-broadband-untuk-dukung-g20-di-indonesia">Telkomsel Optimalkan Jaringan Broadband untuk Dukung G20 di Indonesia</a></h3>
+            <div class="article__channel">
+                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 21 menit lalu            </div>
+        </div>
+                    <div class="left ListCol2">
+                                <a href="http://tekno.kompas.com/read/2022/07/20/11300077/telkomsel-optimalkan-jaringan-broadband-untuk-dukung-g20-di-indonesia">
+                    <img class="lozad" data-src="https://asset.kompas.com/crops/8A561djy-UNUVSgBxW_ya9K2cd8=/0x26:1800x1226/100x100/data/photo/2022/07/19/62d6bbe66214d.jpg">
+                </a> 
+                            </div>
+                <div class="clearit"></div>
+    </div>
+</li>
+<li class="box-shadow-new">
+    <div class="ListCol">
+        <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/19/12020067/mengapa-google-dan-platform-digital-lain-tak-segera-daftar-pse">Mengapa Google dan Platform Digital Lain Tak Segera Daftar PSE?</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 10 menit lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 50 menit lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/19/12020067/mengapa-google-dan-platform-digital-lain-tak-segera-daftar-pse">
@@ -1888,7 +1904,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-">Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 10 menit lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 51 menit lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-">
@@ -1903,7 +1919,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/10450057/samsung-pastikan-galaxy-unpacked-digelar-10-agustus-rilis-z-fold-4-dan-z-flip-4">Samsung Pastikan Galaxy Unpacked Digelar 10 Agustus, Rilis Z Fold 4 dan Z Flip 4?</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Gadget</a></strong> - 25 menit lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Gadget</a></strong> - 1 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/10450057/samsung-pastikan-galaxy-unpacked-digelar-10-agustus-rilis-z-fold-4-dan-z-flip-4">
@@ -1918,7 +1934,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/19/10150087/7-pasal-karet-di-aturan-pse-kominfo-yang-ancam-blokir-google-dkk">7 "Pasal Karet" di Aturan PSE Kominfo yang Ancam Blokir Google dkk</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 27 menit lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 1 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/19/10150087/7-pasal-karet-di-aturan-pse-kominfo-yang-ancam-blokir-google-dkk">
@@ -1933,7 +1949,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/10150067/daftar-platform-digital-yang-sudah-terdaftar-di-halaman-pse-kominfo">Daftar Platform Digital yang Sudah Terdaftar di Halaman PSE Kominfo</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 55 menit lalu            </div>
+                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 2 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/10150067/daftar-platform-digital-yang-sudah-terdaftar-di-halaman-pse-kominfo">
@@ -1948,7 +1964,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/19/14364087/3-tahapan-sanksi-bagi-google-dkk-yang-belum-daftar-pse-kominfo">3 Tahapan Sanksi Bagi Google dkk yang Belum Daftar PSE Kominfo</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 1 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 2 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/19/14364087/3-tahapan-sanksi-bagi-google-dkk-yang-belum-daftar-pse-kominfo">
@@ -1963,7 +1979,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/10000037/apple-mulai-berhemat-batasi-rekrutmen-dan-pengeluaran-tahun-depan">Apple Mulai Berhemat, Batasi Rekrutmen dan Pengeluaran Tahun Depan</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 1 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 2 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/10000037/apple-mulai-berhemat-batasi-rekrutmen-dan-pengeluaran-tahun-depan">
@@ -1993,7 +2009,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/09000027/jadwal-dan-daftar-tim-pubg-mobile-yang-bertanding-di-pmpl-id-fall-2022">Jadwal dan Daftar Tim PUBG Mobile yang Bertanding di PMPL ID Fall 2022</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 2 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Software</a></strong> - 3 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/09000027/jadwal-dan-daftar-tim-pubg-mobile-yang-bertanding-di-pmpl-id-fall-2022">
@@ -2008,7 +2024,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/04/05/08010087/nokia-edge-2022-benar-ada-atau-rumor-belaka-ini-faktanya">Nokia Edge 2022 Benar Ada atau Rumor Belaka? Ini Faktanya</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Gadget</a></strong> - 2 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Gadget</a></strong> - 3 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/04/05/08010087/nokia-edge-2022-benar-ada-atau-rumor-belaka-ini-faktanya">
@@ -2023,7 +2039,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/19/14000047/ini-dampaknya-jika-google-dkk-keukeuh-tidak-daftar-pse-kominfo">Ini Dampaknya jika Google dkk "Keukeuh" Tidak Daftar PSE Kominfo</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 2 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 3 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/19/14000047/ini-dampaknya-jika-google-dkk-keukeuh-tidak-daftar-pse-kominfo">
@@ -2053,7 +2069,7 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/08000007/whatsapp-sudah-terdaftar-di-pse-kominfo-susul-facebook-dan-instagram">WhatsApp Sudah Terdaftar di PSE Kominfo, Susul Facebook dan Instagram</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 3 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">Internet</a></strong> - 4 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/08000007/whatsapp-sudah-terdaftar-di-pse-kominfo-susul-facebook-dan-instagram">
@@ -2068,26 +2084,11 @@ try{
         <div class="left ListCol1 right ">
             <h3><a href="http://tekno.kompas.com/read/2022/07/20/07000077/hari-ini-sinyal-3g-telkomsel-dimatikan-di-wilayah-ini">Hari Ini, Sinyal 3G Telkomsel Dimatikan di Wilayah Ini</a></h3>
             <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 4 jam lalu            </div>
+                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 5 jam lalu            </div>
         </div>
                     <div class="left ListCol2">
                                 <a href="http://tekno.kompas.com/read/2022/07/20/07000077/hari-ini-sinyal-3g-telkomsel-dimatikan-di-wilayah-ini">
                     <img class="lozad" data-src="https://asset.kompas.com/crops/eWhFZmxw90OH6YRHlUL-JeRnvlY=/0x0:1080x720/100x100/data/photo/2022/07/19/62d6bf2c93a12.jpg">
-                </a> 
-                            </div>
-                <div class="clearit"></div>
-    </div>
-</li>
-<li class="box-shadow-new">
-    <div class="ListCol">
-        <div class="left ListCol1 right ">
-            <h3><a href="http://tekno.kompas.com/read/2022/07/19/20000097/oppo-jadi-sponsor-uefa-champions-league-hingga-2024">Oppo Jadi Sponsor UEFA Champions League hingga 2024</a></h3>
-            <div class="article__channel">
-                <strong><a class="" href="javascript:void(0)">e-Business</a></strong> - 15 jam lalu            </div>
-        </div>
-                    <div class="left ListCol2">
-                                <a href="http://tekno.kompas.com/read/2022/07/19/20000097/oppo-jadi-sponsor-uefa-champions-league-hingga-2024">
-                    <img class="lozad" data-src="https://asset.kompas.com/crops/cc54RwaZFLkd1WxrhOn0DzmcgcM=/50x0:1670x1080/100x100/data/photo/2022/07/19/62d67a9730b3f.jpg">
                 </a> 
                             </div>
                 <div class="clearit"></div>
@@ -2422,7 +2423,7 @@ function showKgModal() {
 
 function completeProfile() {
     const token = ("; "+document.cookie).split("; kmp_uid=").pop().split(";").shift();
-    const jkom_hash = "$2y$10$uIqeVaBcau7JELindPuypeEGHX4KNQtOmG24q73MYZbTHIhxlYQWe";
+    const jkom_hash = "$2y$10$sgHMMHukWeBO94/3IHJ5veODCUY9QOdOOnTFzjlYmaVwN3Gdb02vq";
     window.location.href = "https://account.kompas.com/verify_data?source=kompascom&medium=popupkomentar&vid="+token+"&rurl="+btoa(window.location.href)+"&jkom="+jkom_hash;
 }
 </script>
