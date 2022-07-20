@@ -2192,6 +2192,7 @@ player.addListener("videochange", cbOnVideoChanged);
         rInterval = setInterval(function() {
             console.log(ii)
             usertime = ii
+		console.info(player.currentTIme)
             if(player.currentTIme >= 40) {
                 player.pause();
                 rPlayLink.classList.add('-enabled')
