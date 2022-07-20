@@ -2225,6 +2225,8 @@ player.addListener("videochange", cbOnVideoChanged);
                         }
                         ii++
                     }, 1000);
+                } else {
+                    player.pause();
                 }
             }
         });
@@ -4367,7 +4369,7 @@ function showKgModal() {
 
 function completeProfile() {
     const token = ("; "+document.cookie).split("; kmp_uid=").pop().split(";").shift();
-    const jkom_hash = "$2y$10$ToifW7nZZzNv9SA2OpI3I.NWR9WJ7tG3NIuxjEM.GONdLGjDGir1W";
+    const jkom_hash = "$2y$10$x8TgZai8HJo008OdMXwiWe///EvgXeLFQnqKwaJbgBWmJfPaoUzs2";
     window.location.href = "https://account.kompas.com/verify_data?source=kompascom&medium=popupkomentar&vid="+token+"&rurl="+btoa(window.location.href)+"&jkom="+jkom_hash;
 }
 </script>
