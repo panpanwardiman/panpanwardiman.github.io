@@ -2257,7 +2257,7 @@ function getVideo() {
 
                     var urlVideo = 'javascript:void(0)'
                                             var urlTitle = item.title.replace(/[^a-zA-Z ]+/g, '').replace(/\s+/g, '-').toLowerCase();
-                        urlVideo = `https://video.kompas.com/watch/${item.video_id}/${urlTitle}`;
+                        urlVideo = `http://video.lkompas.com/watch/${item.video_id}/${urlTitle}`;
                         
                         if (index == 0) {
                             document.querySelector('.rVideo-player-link').setAttribute("data-href", urlVideo);
