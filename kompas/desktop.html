@@ -2091,7 +2091,7 @@ function fb_share(e,o){return u=o,t=e,window.open("http://www.facebook.com/share
 <h3 class="rVideo-lead">Video Pilihan</h3> 
 
 <div class="rVideo-player rVideo-player-unready">
-            <a href="javascript:void(0)" data-href="" id="rVideoRedirect" class="rVideo-player-link" style="display: none">
+            <a href="javascript:void(0)" id="rVideoRedirect" class="rVideo-player-link" style="display: none">
             <div class="rVideo-player-paused">Lanjutkan Menonton Video</div>
         </a>
         <button class="rVideo-button" type="button"><span>Hide</span></button>
@@ -2204,9 +2204,7 @@ player.addListener("videochange", cbOnVideoChanged);
     if(!!rPlayLink) {        
         rPlayLink.addEventListener('click', function(e){
             e.preventDefault()
-            if (this.classList.contains('-enabled')) {
-                window.location = this.getAttribute('data-href') + '?strtime=' + usertime;
-            }
+            window.location = this.getAttribute('href') + '?strtime=' + usertime;
         })
     }
 
@@ -2255,7 +2253,7 @@ function getVideo() {
                         urlVideo = `https://video.kompas.com/watch/${item.video_id}/${urlTitle}`;
                         
                         if (index == 0) {
-                            document.querySelector('.rVideo-player-link').setAttribute("data-href", urlVideo);
+                            document.querySelector('.rVideo-player-link').setAttribute("href", urlVideo);
                         } 
                     
                     rvList += `<div id="rVideo-item-${item.video_id}" class="rVideo-item ${cls}" onclick="triggerOneVideo(${item.video_id})" data-video-index="${index}">
@@ -2431,16 +2429,16 @@ function timeFormatJixie(value) {
     <div class="article__wrap__grid--flex col-offset-fluid mt2">
                     <div class="col-bs12-3">
                 <div class="article__grid">
-                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya">
+                    <div class="article__boxsubtitle" id="https://nextren.grid.id/read/013014806/inilah-bocoran-daftar-hp-xiaomi-yang-bisa-update-miui-13-ada-punyamu?utm_source=kompas.com&utm_medium=jaim-box">
                         <div class="article__subtitle">GADGET</div>
                     </div>
                     <div class="article__asset">
-                        <a title="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya" href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" position="1">
-                            <img id="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" class="lozad" data-src="https://asset.kompas.com/crops/G1gWK8RfXaoR7PT1zJ3biI4Z8KU=/0x0:1561x1041/170x113/data/photo/2022/07/19/62d6545742e69.jpg" alt="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya">                        </a>
+                        <a title="Inilah Bocoran Daftar HP Xiaomi yang Bisa Update MIUI 13, Ada Punyamu?" href="https://nextren.grid.id/read/013014806/inilah-bocoran-daftar-hp-xiaomi-yang-bisa-update-miui-13-ada-punyamu?utm_source=kompas.com&utm_medium=jaim-box" position="1">
+                            <img id="https://nextren.grid.id/read/013014806/inilah-bocoran-daftar-hp-xiaomi-yang-bisa-update-miui-13-ada-punyamu?utm_source=kompas.com&utm_medium=jaim-box" class="lozad" data-src="https://asset-a.grid.id/crop/0x0:0x0/750x500/photo/2021/11/05/src-340x191miui-13-ekran-goruntu-20211105083118.jpg" alt="Inilah Bocoran Daftar HP Xiaomi yang Bisa Update MIUI 13, Ada Punyamu?">                        </a>
                     </div>
                     <div class="article__box">
                         <div class="article__title">
-                            <a class="article__link" title="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya" position="1" href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" style="font-size: 14px;">Xiaomi 12 Lite Resmi Masuk Indonesia,...</a>
+                            <a class="article__link" title="Inilah Bocoran Daftar HP Xiaomi yang Bisa Update MIUI 13, Ada Punyamu?" position="1" href="https://nextren.grid.id/read/013014806/inilah-bocoran-daftar-hp-xiaomi-yang-bisa-update-miui-13-ada-punyamu?utm_source=kompas.com&utm_medium=jaim-box" style="font-size: 14px;">Inilah Bocoran Daftar HP Xiaomi yang...</a>
                         </div>
                     </div>
                 </div>
@@ -2479,16 +2477,32 @@ function timeFormatJixie(value) {
             </div>
                     <div class="col-bs12-3">
                 <div class="article__grid">
-                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-">
-                        <div class="article__subtitle">SOFTWARE</div>
+                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-">
+                        <div class="article__subtitle">GADGET</div>
                     </div>
                     <div class="article__asset">
-                        <a title="Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?" href="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-" position="4">
-                            <img id="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-" class="lozad" data-src="https://asset.kompas.com/crops/ZMgkdkKjerTuKjwGYl6IoBXZp2w=/0x0:960x640/170x113/data/photo/2021/07/19/60f502f730acf.jpg" alt="Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?">                        </a>
+                        <a title="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?" href="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" position="4">
+                            <img id="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" class="lozad" data-src="https://asset.kompas.com/crops/L6Md9wHAzuCyh0kf1ZhVIxwNYYQ=/79x96:1355x946/170x113/data/photo/2022/04/08/624fc0abf1b26.png" alt="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?">                        </a>
                     </div>
                     <div class="article__box">
                         <div class="article__title">
-                            <a class="article__link" title="Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?" position="4" href="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-" style="font-size: 14px;">Microsoft Disebut Sedang Siapkan Windows 12,...</a>
+                            <a class="article__link" title="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?" position="4" href="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" style="font-size: 14px;">Xiaomi 12T Meluncur di Indonesia Sebentar...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-bs12-3">
+                <div class="article__grid">
+                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya">
+                        <div class="article__subtitle">GADGET</div>
+                    </div>
+                    <div class="article__asset">
+                        <a title="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya" href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" position="5">
+                            <img id="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" class="lozad" data-src="https://asset.kompas.com/crops/G1gWK8RfXaoR7PT1zJ3biI4Z8KU=/0x0:1561x1041/170x113/data/photo/2022/07/19/62d6545742e69.jpg" alt="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya">                        </a>
+                    </div>
+                    <div class="article__box">
+                        <div class="article__title">
+                            <a class="article__link" title="Xiaomi 12 Lite Resmi Masuk Indonesia, Ini Harganya" position="5" href="https://tekno.kompas.com/read/2022/07/19/13442507/xiaomi-12-lite-resmi-masuk-indonesia-ini-harganya" style="font-size: 14px;">Xiaomi 12 Lite Resmi Masuk Indonesia,...</a>
                         </div>
                     </div>
                 </div>
@@ -2499,44 +2513,28 @@ function timeFormatJixie(value) {
                         <div class="article__subtitle">GADGET</div>
                     </div>
                     <div class="article__asset">
-                        <a title="Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy S22 Ultra, dan iPhone 13 Pro Max, Bagaimana Hasilnya?" href="https://tekno.kompas.com/read/2022/07/13/08030007/membandingkan-jepretan-xiaomi-12s-ultra-galaxy-s22-ultra-dan-iphone-13-pro-max" position="5">
+                        <a title="Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy S22 Ultra, dan iPhone 13 Pro Max, Bagaimana Hasilnya?" href="https://tekno.kompas.com/read/2022/07/13/08030007/membandingkan-jepretan-xiaomi-12s-ultra-galaxy-s22-ultra-dan-iphone-13-pro-max" position="6">
                             <img id="https://tekno.kompas.com/read/2022/07/13/08030007/membandingkan-jepretan-xiaomi-12s-ultra-galaxy-s22-ultra-dan-iphone-13-pro-max" class="lozad" data-src="https://asset.kompas.com/crops/4_Sv8fv_kflTzQP2DlGnawM5dfY=/93x50:912x596/170x113/data/photo/2022/07/05/62c40e0270953.jpg" alt="Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy S22 Ultra, dan iPhone 13 Pro Max, Bagaimana Hasilnya?">                        </a>
                     </div>
                     <div class="article__box">
                         <div class="article__title">
-                            <a class="article__link" title="Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy S22 Ultra, dan iPhone 13 Pro Max, Bagaimana Hasilnya?" position="5" href="https://tekno.kompas.com/read/2022/07/13/08030007/membandingkan-jepretan-xiaomi-12s-ultra-galaxy-s22-ultra-dan-iphone-13-pro-max" style="font-size: 14px;">Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy...</a>
+                            <a class="article__link" title="Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy S22 Ultra, dan iPhone 13 Pro Max, Bagaimana Hasilnya?" position="6" href="https://tekno.kompas.com/read/2022/07/13/08030007/membandingkan-jepretan-xiaomi-12s-ultra-galaxy-s22-ultra-dan-iphone-13-pro-max" style="font-size: 14px;">Membandingkan Jepretan Xiaomi 12S Ultra, Galaxy...</a>
                         </div>
                     </div>
                 </div>
             </div>
                     <div class="col-bs12-3">
                 <div class="article__grid">
-                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-">
-                        <div class="article__subtitle">GADGET</div>
+                    <div class="article__boxsubtitle" id="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-">
+                        <div class="article__subtitle">SOFTWARE</div>
                     </div>
                     <div class="article__asset">
-                        <a title="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?" href="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" position="6">
-                            <img id="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" class="lozad" data-src="https://asset.kompas.com/crops/L6Md9wHAzuCyh0kf1ZhVIxwNYYQ=/79x96:1355x946/170x113/data/photo/2022/04/08/624fc0abf1b26.png" alt="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?">                        </a>
+                        <a title="Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?" href="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-" position="7">
+                            <img id="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-" class="lozad" data-src="https://asset.kompas.com/crops/ZMgkdkKjerTuKjwGYl6IoBXZp2w=/0x0:960x640/170x113/data/photo/2021/07/19/60f502f730acf.jpg" alt="Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?">                        </a>
                     </div>
                     <div class="article__box">
                         <div class="article__title">
-                            <a class="article__link" title="Xiaomi 12T Meluncur di Indonesia Sebentar Lagi?" position="6" href="https://tekno.kompas.com/read/2022/07/14/14300007/xiaomi-12t-meluncur-di-indonesia-sebentar-lagi-" style="font-size: 14px;">Xiaomi 12T Meluncur di Indonesia Sebentar...</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    <div class="col-bs12-3">
-                <div class="article__grid">
-                    <div class="article__boxsubtitle" id="https://makemac.grid.id/read/213017720/twitter-siap-luncurkan-3-fitur-baru-di-ios-rilis-akhir-tahun?utm_source=kompas.com&utm_medium=jaim-box">
-                        <div class="article__subtitle">NEWS</div>
-                    </div>
-                    <div class="article__asset">
-                        <a title="Twitter Siap Luncurkan 3 Fitur Baru di iOS, Rilis Akhir Tahun" href="https://makemac.grid.id/read/213017720/twitter-siap-luncurkan-3-fitur-baru-di-ios-rilis-akhir-tahun?utm_source=kompas.com&utm_medium=jaim-box" position="7">
-                            <img id="https://makemac.grid.id/read/213017720/twitter-siap-luncurkan-3-fitur-baru-di-ios-rilis-akhir-tahun?utm_source=kompas.com&utm_medium=jaim-box" class="lozad" data-src="https://asset-a.grid.id/crop/0x0:0x0/750x500/photo/2021/05/04/twitterjpg-20210504104427.jpg" alt="Twitter Siap Luncurkan 3 Fitur Baru di iOS, Rilis Akhir Tahun">                        </a>
-                    </div>
-                    <div class="article__box">
-                        <div class="article__title">
-                            <a class="article__link" title="Twitter Siap Luncurkan 3 Fitur Baru di iOS, Rilis Akhir Tahun" position="7" href="https://makemac.grid.id/read/213017720/twitter-siap-luncurkan-3-fitur-baru-di-ios-rilis-akhir-tahun?utm_source=kompas.com&utm_medium=jaim-box" style="font-size: 14px;">Twitter Siap Luncurkan 3 Fitur Baru...</a>
+                            <a class="article__link" title="Microsoft Disebut Sedang Siapkan Windows 12, Kapan Meluncur?" position="7" href="https://tekno.kompas.com/read/2022/07/20/11000047/microsoft-disebut-sedang-siapkan-windows-12-kapan-meluncur-" style="font-size: 14px;">Microsoft Disebut Sedang Siapkan Windows 12,...</a>
                         </div>
                     </div>
                 </div>
@@ -3606,28 +3604,28 @@ unfixed: function() {
   </div>
   <div class="trending__wrap mt2 clearfix">
     <div class="article__grid">
-    <div class="article__asset"><a href="https://nasional.kompas.com/read/2022/07/20/08322141/desakan-otopsi-ulang-jenazah-brigadir-j-dan-rencana-polri-ungkap-ke-publik"><img class="lozad" data-src="https://asset.kompas.com/crops/YQlC2y5s2zMxkY_29V8NX5CeGDM=/0x0:0x0/300x200/data/photo/2022/07/19/62d6af81a4976.jpg" alt="Desakan Otopsi Ulang Jenazah Brigadir J dan Rencana Polri Ungkap ke Publik "/></a>
+    <div class="article__asset"><a href="https://megapolitan.kompas.com/read/2022/07/20/12021961/knkt-duga-penyebab-kecelakaan-di-cibubur-adalah-kegagalan-pengereman"><img class="lozad" data-src="https://asset.kompas.com/crops/NG-wn6xvLeIcX_eaH-7vpsHmtZQ=/251x0:1599x899/300x200/data/photo/2022/07/18/62d53d1a036ac.jpeg" alt="KNKT Duga Penyebab Kecelakaan di Cibubur adalah Kegagalan Pengereman"/></a>
   </div>
   <div class="article__box article__box--medium">
-    <h4 class="article__title"><a class="article__link" href="https://nasional.kompas.com/read/2022/07/20/08322141/desakan-otopsi-ulang-jenazah-brigadir-j-dan-rencana-polri-ungkap-ke-publik">Desakan Otopsi Ulang Jenazah Brigadir J dan Rencana Polri Ungkap ke Publik </a></h4>
+    <h4 class="article__title"><a class="article__link" href="https://megapolitan.kompas.com/read/2022/07/20/12021961/knkt-duga-penyebab-kecelakaan-di-cibubur-adalah-kegagalan-pengereman">KNKT Duga Penyebab Kecelakaan di Cibubur adalah Kegagalan Pengereman</a></h4>
   </div>
 </div><div class="article__grid">
-    <div class="article__asset"><a href="https://megapolitan.kompas.com/read/2022/07/20/09211991/rizieq-shihab-bebas-dijemput-keluarga-dan-tiba-di-kediaman-pagi-ini"><img class="lozad" data-src="https://asset.kompas.com/crops/HTbbfyP42UcL_P7DfyGgguOEQag=/0x0:999x666/300x200/data/photo/2021/06/24/60d40c20f2652.jpg" alt="Rizieq Shihab Bebas, Dijemput Keluarga dan Tiba di Kediaman Pagi Ini"/></a>
+    <div class="article__asset"><a href="https://www.kompas.com/global/read/2022/07/20/120200570/malaysia-ikut-tercekik-harga-minyak-goreng-pm-diprotes-pedagang-karena"><img class="lozad" data-src="https://asset.kompas.com/crops/c9rIVe6Z1nMO2ZOU4SXClu4KElw=/192x15:882x475/300x200/data/photo/2022/07/20/62d77efd22689.jpg" alt="Malaysia Ikut Tercekik Harga Minyak Goreng, PM Diprotes Pedagang karena Coba Batasi Subsidi "/></a>
   </div>
   <div class="article__box article__box--medium">
-    <h4 class="article__title"><a class="article__link" href="https://megapolitan.kompas.com/read/2022/07/20/09211991/rizieq-shihab-bebas-dijemput-keluarga-dan-tiba-di-kediaman-pagi-ini">Rizieq Shihab Bebas, Dijemput Keluarga dan Tiba di Kediaman Pagi Ini</a></h4>
+    <h4 class="article__title"><a class="article__link" href="https://www.kompas.com/global/read/2022/07/20/120200570/malaysia-ikut-tercekik-harga-minyak-goreng-pm-diprotes-pedagang-karena">Malaysia Ikut Tercekik Harga Minyak Goreng, PM Diprotes Pedagang karena Coba Batasi Subsidi </a></h4>
   </div>
 </div><div class="article__grid">
-    <div class="article__asset"><a href="https://megapolitan.kompas.com/read/2022/07/20/10124171/pemkot-bekasi-dinilai-keliru-pasang-lampu-merah-di-simpang-cibubur-cbd"><img class="lozad" data-src="https://asset.kompas.com/crops/PWRPUgxH55CdvxCQ-jbHOgz1ipY=/0x0:1349x899/300x200/data/photo/2022/07/18/62d53d1a6a287.jpeg" alt="Pemkot Bekasi Dinilai Keliru Pasang Lampu Merah di Simpang Cibubur CBD, Ini Alasannya..."/></a>
+    <div class="article__asset"><a href="https://megapolitan.kompas.com/read/2022/07/20/11511151/massa-buruh-mulai-banjiri-halaman-depan-gedung-balai-kota-dki"><img class="lozad" data-src="https://asset.kompas.com/crops/_y9WL9zjzOvSqGjKNm9XHGUmwEw=/0x0:0x0/300x200/data/photo/2022/07/20/62d7865dad736.jpg" alt="Massa Buruh Mulai Banjiri Halaman Depan Gedung Balai Kota DKI"/></a>
   </div>
   <div class="article__box article__box--medium">
-    <h4 class="article__title"><a class="article__link" href="https://megapolitan.kompas.com/read/2022/07/20/10124171/pemkot-bekasi-dinilai-keliru-pasang-lampu-merah-di-simpang-cibubur-cbd">Pemkot Bekasi Dinilai Keliru Pasang Lampu Merah di Simpang Cibubur CBD, Ini Alasannya...</a></h4>
+    <h4 class="article__title"><a class="article__link" href="https://megapolitan.kompas.com/read/2022/07/20/11511151/massa-buruh-mulai-banjiri-halaman-depan-gedung-balai-kota-dki">Massa Buruh Mulai Banjiri Halaman Depan Gedung Balai Kota DKI</a></h4>
   </div>
 </div><div class="article__grid">
-    <div class="article__asset"><a href="https://www.kompas.com/global/read/2022/07/20/100100970/1.000-orang-tewas-akibat-gelombang-panas-di-portugal"><img class="lozad" data-src="https://asset.kompas.com/crops/eBOro4ZlaLZTITxjC8dA1gHIBCs=/102x0:902x533/300x200/data/photo/2021/07/28/610112d4e1a5c.jpg" alt="1.000 Orang Tewas Akibat Gelombang Panas di Portugal"/></a>
+    <div class="article__asset"><a href="https://regional.kompas.com/read/2022/07/20/115103478/tour-guide-kecewa-tiket-masuk-tn-komodo-naik-4-tamu-saya-batal"><img class="lozad" data-src="https://asset.kompas.com/crops/6A0zOFDCXz3NsZW7GiuoPfTos4U=/0x0:1023x682/300x200/data/photo/2022/06/30/62bd25559ad49.jpg" alt="'Tour Guide' Kecewa Tiket Masuk TN Komodo Naik: 4 Tamu Saya Batal "/></a>
   </div>
   <div class="article__box article__box--medium">
-    <h4 class="article__title"><a class="article__link" href="https://www.kompas.com/global/read/2022/07/20/100100970/1.000-orang-tewas-akibat-gelombang-panas-di-portugal">1.000 Orang Tewas Akibat Gelombang Panas di Portugal</a></h4>
+    <h4 class="article__title"><a class="article__link" href="https://regional.kompas.com/read/2022/07/20/115103478/tour-guide-kecewa-tiket-masuk-tn-komodo-naik-4-tamu-saya-batal">"Tour Guide" Kecewa Tiket Masuk TN Komodo Naik: 4 Tamu Saya Batal </a></h4>
   </div>
 </div><!-- (ads.trending) --><div class="article__grid">
     <div class="article__asset"><a href="https://www.kompas.com/tren/read/2022/07/20/072201665/gempa-magnitudo-58-guncang-bengkulu-tak-ada-potensi-tsunami"><img class="lozad" data-src="https://asset.kompas.com/crops/-EOOW9Dr-8yMeRxNI9pf3ThO9zs=/15x23:1164x789/300x200/data/photo/2022/01/05/61d55102ebb85.jpg" alt="Gempa Magnitudo 5,8 Guncang Bengkulu, Tak Ada Potensi Tsunami"/></a>
@@ -4340,7 +4338,7 @@ function showKgModal() {
 
 function completeProfile() {
     const token = ("; "+document.cookie).split("; kmp_uid=").pop().split(";").shift();
-    const jkom_hash = "$2y$10$PaGPrKqORU3MgrZmVDy1Ge9ERX3ENXuu5qxM/Z6t9rhvMmOH0QBCi";
+    const jkom_hash = "$2y$10$1J6CfXXXRzLBUaSr4raZj.uQtDmILnm5hD6Sr/lyTAhQqHWr0x35G";
     window.location.href = "https://account.kompas.com/verify_data?source=kompascom&medium=popupkomentar&vid="+token+"&rurl="+btoa(window.location.href)+"&jkom="+jkom_hash;
 }
 </script>
