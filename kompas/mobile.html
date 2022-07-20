@@ -1377,6 +1377,7 @@ try{
         if(!!rPlayLink) {
             rPlayLink.addEventListener('click', function(e){
                 e.preventDefault()
+		console.info(this.getAttribute('href') + '?strtime=' + usertime);
                 window.location = this.getAttribute('href') + '?strtime=' + usertime;
             })
         }
