@@ -54,7 +54,17 @@
 		dataLayer.push({
 			'event': 'Navbar',
 			'menu': 'Home / About / Service / Contact'
-		});	
+		});
+		
+		if ('ga' in window) {
+			ga('send', {
+				'hitType': 'pageviews',
+				'page': '/read/2022/08/01/060700327/keindahan-tenun-gringsing-bali-hadiah-untuk-delegasi-ktt-g20?utm_source=g20',
+				'title': 'Keindahan Tenun Gringsing Bali, Hadiah untuk Delegasi KTT G20'
+			})
+		} else {
+			console.info('ga not support')
+		}
 	</script>
 	<div class="mobile-menu-wrapper overlay">
 		<div id="mobile-menu">
