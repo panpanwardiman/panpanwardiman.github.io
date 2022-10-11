@@ -22,12 +22,21 @@
         ga( 'create', 'UA-219502134-1', 'auto' );
         ga( 'send', 'pageview' );
     </script>
-    <script src="https://asset.kompas.com/data/2021/chatbot/js/chatbot.min.js?v=17"></script>
-    <script async src="./js/test.tracker.js"></script>
     <script>
-        chatbot({
-            campaign_id: 3
-        });
+        if ('ga' in window) {
+			ga('send', {
+				'hitType': 'pageviews',
+				'page': '/read/2022/08/01/060700327/keindahan-tenun-gringsing-bali-hadiah-untuk-delegasi-ktt-g20?utm_source=g20',
+				'title': 'Keindahan Tenun Gringsing Bali, Hadiah untuk Delegasi KTT G20'
+			})
+		} else {
+            ga('send', {
+				'hitType': 'pageviews',
+				'page': '/read/2022/08/01/060700327/keindahan-tenun-gringsing-bali-hadiah-untuk-delegasi-ktt-g20?utm_source=g20',
+				'title': 'Keindahan Tenun Gringsing Bali, Hadiah untuk Delegasi KTT G20'
+			})
+			console.info('ga not support')
+		}
     </script>
 </body>
 </html>
