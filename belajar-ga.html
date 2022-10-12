@@ -7,6 +7,7 @@
     <title>Belajar Google Analytics</title>
 </head>
 <body>
+    <div id="test"><a href="google.com">google</a></div>
     <script>
         (function(i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
@@ -23,6 +24,14 @@
         ga( 'send', 'pageview' );
     </script>
     <script>
+	document.getElementById('test').addEventListener('click', function() {
+		ga(function() {
+		    tracker = ga.getAll()[0];
+		    if (tracker){
+			tracker.send("event", "TEST", "Click All Video Link", "Click All Video Artikel");
+		    }
+		})
+	})
         if ('ga' in window) {
 			ga('set', 'campaignSource', 'g20')
 			ga('send', {
