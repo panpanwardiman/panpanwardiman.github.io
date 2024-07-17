@@ -441,9 +441,7 @@
 					const file = new File([blob], 'image-share.jpg', { type: blob.type });
 					try {
 						await navigator.share({
-							url: document.URL,
-							title: document.title,
-							text: "Tap Stories Kompas.com",
+							text: `Tipe Pejuang Finansial, Kamu Yang Mana? - Tap Stories Kompas.com ${document.URL}`,
 							files: [file]
 						});
 						console.log('Content shared successfully');
