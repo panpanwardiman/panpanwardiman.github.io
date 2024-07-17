@@ -384,7 +384,7 @@
 	</div>
 
 	<script src="https://asset.kompas.com/data/2024/tapstory/interactive/js/lazysizes.min.js"></script>
-	<script src="https://asset.kompas.com/data/2024/tapstory/interactive/js/tapstories.js"></script>
+	<script src="https://asset.kompas.com/data/2024/tapstory/interactive/js/tapstories.js?v=20240717"></script>
 	<script>
 		const interactive = {
 			imageShare: null,
@@ -426,7 +426,7 @@
 			},
 			updateMetaTags: function() {
 				const ogImageMeta = document.querySelector('meta[property="og:image"]');
-				const twitterImageMeta = document.querySelector('meta[property="twitter:image"]');
+				const twitterImageMeta = document.querySelector('meta[name="twitter:image"]');
 				if (ogImageMeta) {
 					ogImageMeta.setAttribute('content', this.imageShare);
 				}
@@ -436,8 +436,7 @@
 			},
 			shareCta: async function() {
 				if (navigator.canShare && navigator.canShare({files: [new File([], '')]})) {
-					const urlImageShare = this.imageShare
-					const response = await fetch()
+					const response = await fetch(this.imageShare)
 					const blob = await response.blob();
 					const file = new File([blob], 'image-share.jpg', { type: blob.type });
 					try {
