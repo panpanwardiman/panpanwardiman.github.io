@@ -1,7 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+	<!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PT7PC4');</script>
+    <!-- End Google Tag Manager -->
+
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Tipe Pejuang Finansial, Kamu Yang Mana?</title>
@@ -32,6 +41,7 @@
 </head>
 
 <body>
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PT7PC4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<div class="container">
 		<div data-slide="slide" class="slide">
 			<div class="slide-items">
@@ -336,7 +346,7 @@
 						<div class="interactive-survey interactive-survey-result">
 							<div class="interactive-results center">
 								<div class="interactive-results-container">
-									<a href="javascript:void(0)" class="share-cta" onclick="interactive.shareCta()">Bagikan Hasil
+									<a href="javascript:void(0)" class="share-cta" onclick="interactive.share(this)">Bagikan Hasil
 										Tes</a>
 									<div class="result-text">
 										Temukan konten seru lainnya <br />
@@ -374,7 +384,7 @@
 			<nav class="slide-nav">
 				<div class="slide-thumb"></div>
 			</nav>
-			<button class="slide-share"></button>
+			<button class="slide-share" data-img-share="https://asset.kompas.com/data/2024/tapstory/interactive/images/tapstory-finance.jpg" onclick="interactive.share(this)"></button>
 			<div class="slide-arrow">
 				<button class="slide-arrow-prev"></button>
 				<button class="slide-arrow-next"></button>
@@ -384,7 +394,7 @@
 	</div>
 
 	<script src="https://asset.kompas.com/data/2024/tapstory/interactive/js/lazysizes.min.js"></script>
-	<script src="https://asset.kompas.com/data/2024/tapstory/interactive/js/tapstories.js?v=20240717"></script>
+	<script src="https://asset.kompas.com/data/2024/tapstory/interactive/js/tapstories.js?v=20240718"></script>
 	<script>
 		const interactive = {
 			imageShare: null,
@@ -416,6 +426,7 @@
 					this.imageResult = `${this.baseAsset}images/result-3.jpg`;
 				}
 
+				document.querySelector('.share-cta').setAttribute('data-img-share', this.imageShare)
 				this.updateResultBackground();
 				this.updateMetaTags();
 			},
@@ -434,14 +445,15 @@
 					twitterImageMeta.setAttribute('content', this.imageShare);
 				}
 			},
-			shareCta: async function() {
+			share: async function(e) {
 				if (navigator.canShare && navigator.canShare({files: [new File([], '')]})) {
-					const response = await fetch(this.imageShare)
+					const imageUrl = e.getAttribute('data-img-share')
+					const response = await fetch(imageUrl)
 					const blob = await response.blob();
 					const file = new File([blob], 'image-share.jpg', { type: blob.type });
 					try {
 						await navigator.share({
-							text: `Tipe Pejuang Finansial, Kamu Yang Mana? - Tap Stories Kompas.com ${document.URL}`,
+							text: `${document.title} - Tap Stories Kompas.com\n${document.URL}`,
 							files: [file]
 						});
 						console.log('Content shared successfully');
@@ -455,7 +467,6 @@
 		}
 		const lastQuestion = interactive.questionEl.length;
 		document.querySelectorAll(`input[name="q${lastQuestion}"]`).forEach(input => {
-			console.info('here')
 			input.addEventListener('change', () => {
 				interactive.calculateResult();
 			});
