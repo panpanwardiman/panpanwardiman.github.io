@@ -453,7 +453,7 @@
 					const file = new File([blob], 'image-share.jpg', { type: blob.type });
 					try {
 						await navigator.share({
-							text: `${document.title} - Tap Stories Kompas.com\n${document.URL}`,
+							text: `${document.title} - Tap Stories Kompas.com\n\n${document.URL}`,
 							files: [file]
 						});
 						console.log('Content shared successfully');
